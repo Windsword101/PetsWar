@@ -1,14 +1,12 @@
-﻿
-using System.Threading;
-using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public GameObject hit;
     [Header("集氣速度"), Range(0f, 5f)]
     public float speed;
+    public Image str_bar;
     [Header("丟擲物品")]
     public GameObject prop;
 
@@ -25,13 +23,14 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        str_bar.fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
         if (Input.GetKey(KeyCode.Space))
         {
             _str += speed;
             timer += Time.deltaTime;
         }
-        if (timer >= 2f || Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             _str = 0;
             timer = 0;
