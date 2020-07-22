@@ -12,11 +12,11 @@ public class onMouse : MonoBehaviour
     }
     public void OnMouseEnter()
     {
-        this.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        this.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
     }
     public void OnMouseExit()
     {
-        this.transform.localScale = new Vector3(1f, 1f, 1f);
+        this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         
     }
 }

@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        str_bar.fillAmount = _str / 600f;
-        str = Mathf.Clamp(_str, 0f, 600f);
+        str_bar.fillAmount = _str / 500f;
+        str = Mathf.Clamp(_str, 0f, 500f);
         if (Input.GetKey(KeyCode.Space))
         {
             _str += speed;
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     public void Fire()
     {
         
-        GameObject temp = Instantiate(prop, transform.position, Quaternion.identity);
+        GameObject temp = Instantiate(prop, transform.position, transform.rotation);
         Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
         temp.transform.LookAt(hit.transform.position);
         temp.GetComponent<Rigidbody>().AddForce(0, 500, 0);
