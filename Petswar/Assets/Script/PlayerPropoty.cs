@@ -6,8 +6,8 @@ using Photon.Pun;
 public class PlayerPropoty : MonoBehaviour
 {
     PhotonView pv;
-    GameObject dog;
-    string[] pets = { "Dog", "Turtle", "Rib" };
+    Player myController;
+    
 
     private void Start()
     {
@@ -15,10 +15,10 @@ public class PlayerPropoty : MonoBehaviour
         pv = GetComponent<PhotonView>();
         if (pv.IsMine)
         {
-            dog = GameObject.Find("Dog");
-            transform.parent = dog.transform;
+            myController = FindObjectOfType<Player>();
+            /*transform.parent = dog.transform;
             transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
+            transform.localRotation = Quaternion.identity;*/
         }
 
 

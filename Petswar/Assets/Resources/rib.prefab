@@ -699,7 +699,6 @@ GameObject:
   - component: {fileID: -7889773485295201131}
   - component: {fileID: -7411654267029922582}
   - component: {fileID: -5727327680768850417}
-  - component: {fileID: 4470440079974669309}
   m_Layer: 0
   m_Name: rib
   m_TagString: Untagged
@@ -818,22 +817,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &4470440079974669309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5436321904501075795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hit: {fileID: 0}
-  speed: 0
-  str_bar: {fileID: 0}
-  prop: {fileID: 0}
 --- !u!1 &5544363862801836603
 GameObject:
   m_ObjectHideFlags: 0

@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 8347972848010141371}
   - component: {fileID: 8296172669224752306}
   - component: {fileID: 8296172669224752307}
-  - component: {fileID: -5434015464629832771}
   m_Layer: 0
   m_Name: dog
   m_TagString: Untagged
@@ -274,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f53e48253fd86f4f8136447c40bfa15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitTarget: {fileID: -5434015464629832771}
+  HitTarget: {fileID: 0}
 --- !u!114 &8347972848010141371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,22 +323,6 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-5434015464629832771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2663990043652516520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hit: {fileID: 0}
-  speed: 4
-  str_bar: {fileID: 0}
-  prop: {fileID: 15950736546916219, guid: 54f378644cf5972459838ef0cafe7c8a, type: 3}
 --- !u!1 &2722570574705924081
 GameObject:
   m_ObjectHideFlags: 0

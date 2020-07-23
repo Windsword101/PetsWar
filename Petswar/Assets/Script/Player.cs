@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     public GameObject hit;
     [Header("集氣速度"), Range(0f, 5f)]
-    public float speed;
+    public float speed = 4f;
     public GameObject str_bar;
     [Header("丟擲物品")]
     public GameObject prop;
@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+       
         str_bar = GameObject.Find("集氣條 (1)");
     }
     private void Update()

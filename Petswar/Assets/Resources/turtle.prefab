@@ -1071,7 +1071,6 @@ GameObject:
   - component: {fileID: 2582831816669818634}
   - component: {fileID: -3186689476292031660}
   - component: {fileID: -313869715028082683}
-  - component: {fileID: -107759951039737603}
   m_Layer: 0
   m_Name: turtle
   m_TagString: Untagged
@@ -1191,19 +1190,3 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &-107759951039737603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9207417137574959149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hit: {fileID: 0}
-  speed: 0
-  str_bar: {fileID: 0}
-  prop: {fileID: 0}
