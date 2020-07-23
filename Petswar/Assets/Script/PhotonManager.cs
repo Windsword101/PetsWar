@@ -80,7 +80,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
 
-        PhotonNetwork.LoadLevel("MenuScene");
+        PhotonNetwork.LoadLevel("GameScene");
         PhotonNetwork.AutomaticallySyncScene = true;
         print("Join " + PhotonNetwork.CurrentRoom.Name + " Success!!");
     }

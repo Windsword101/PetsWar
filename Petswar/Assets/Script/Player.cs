@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     public GameObject hit;
     [Header("集氣速度"), Range(0f, 5f)]
     public float speed;
-    public Image str_bar;
+    public GameObject str_bar;
     [Header("丟擲物品")]
     public GameObject prop;
 
@@ -15,16 +15,15 @@ public class Player : MonoBehaviour
     private float _str;
     private float timer;
     
-    
-    
+
     private void Start()
     {
-        
+        str_bar = GameObject.Find("集氣條 (1)");
     }
     private void Update()
     {
-        str_bar.fillAmount = _str / 500f;
-        str = Mathf.Clamp(_str, 0f, 500f);
+        str_bar.GetComponent<Image>().fillAmount = _str / 600f;
+        str = Mathf.Clamp(_str, 0f, 600f);
         if (Input.GetKey(KeyCode.Space))
         {
             _str += speed;
@@ -36,7 +35,7 @@ public class Player : MonoBehaviour
             timer = 0;
             Fire();
         }
-        print(_str);
+
 
     }
     public void Fire()
