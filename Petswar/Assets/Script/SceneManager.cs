@@ -4,35 +4,40 @@ using UnityEngine;
 using Photon.Pun;
 public class SceneManager : MonoBehaviourPunCallbacks
 {
-   public GameObject[] spawnPoint;
-   string[] pets = { "Dog", "Turtle", "Rib" };
+    //public GameObject[] spawnPoint;
+    public GameObject[] pets;
 
     private void Awake()
     {
-        spawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        //spawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
     }
     void Start()
     {
-        int i = Random.Range(0, 3);
-        GameObject tmpPlayer = new GameObject("PlayerController");
-        tmpPlayer.AddComponent<Player>();
-
-        //PhotonNetwork.Instantiate("dog", Vector3.up * 3f, Quaternion.identity);
-        if (PhotonNetwork.PlayerList.Length == 1)
-            tmpPlayer.transform.position = spawnPoint[0].transform.position;
-        if (PhotonNetwork.PlayerList.Length == 2)
-            tmpPlayer.transform.position = spawnPoint[1].transform.position;
-        if (PhotonNetwork.PlayerList.Length == 3)
-            tmpPlayer.transform.position = spawnPoint[2].transform.position;
-        //if (PhotonNetwork.PlayerList.Length == 4)
-        // PhotonNetwork.Instantiate("dog", spawnPoint[3].transform.position, Quaternion.identity);
-
-        GameObject myPlayer = PhotonNetwork.Instantiate(pets[i], Vector3.up * 3, Quaternion.identity);
-        myPlayer.transform.parent = tmpPlayer.transform;
-        myPlayer.transform.localPosition = Vector3.zero;
-        myPlayer.transform.localRotation = Quaternion.identity;
+        SpawnPlayer();
+       
     }
+    void SpawnPlayer()
+    {
+        int i;
+        i = Random.Range(0, 4);
+        if (PhotonNetwork.PlayerList.Length == 1)
+        {
+            PhotonNetwork.Instantiate(pets[i].name, new Vector3(-7.25f, 1f, -7.8f), transform.rotation);
+        }
+        if (PhotonNetwork.PlayerList.Length == 2)
+        {
+            PhotonNetwork.Instantiate(pets[i].name, new Vector3(6.6f, 1f, 5f), transform.rotation);
+        }
+        if (PhotonNetwork.PlayerList.Length == 3)
+        {
+            PhotonNetwork.Instantiate(pets[i].name, new Vector3(5.9f, 1f, -9f), transform.rotation);
+        }
+        if (PhotonNetwork.PlayerList.Length == 4)
+        {
+            PhotonNetwork.Instantiate(pets[i].name, new Vector3(-5, 1f, 4.8f), transform.rotation);
+        }
 
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))

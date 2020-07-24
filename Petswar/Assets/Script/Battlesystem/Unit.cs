@@ -6,12 +6,17 @@ public class Unit : MonoBehaviour
 {
     public string unitName;
 
-    public int damage;
+    public int damage = 10;
 
-    public int maxHP;
+    public int maxHP = 100;
 
     public int currentHP;
 
+    private void Awake()
+    {
+        currentHP = maxHP;
+        unitName = gameObject.name;
+    }
     public bool TakeDamage(int dmg)
     {
         currentHP -= dmg;
