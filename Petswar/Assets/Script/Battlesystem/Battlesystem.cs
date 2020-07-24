@@ -57,18 +57,51 @@ public class Battlesystem : MonoBehaviour
 
     void ChooseTurn()
     { 
+
     
     
     
     }
     #endregion
+    
 
     #region 死亡判定
 
     void Battleturn()
     {
-        //bool isdead 
-    
+        #region 玩家的死亡判定
+
+        bool isdead0 = player0unit.TakeDamage(player1unit.damage| player2unit.damage| player3unit.damage);
+        bool isdead1 = player1unit.TakeDamage(player0unit.damage| player2unit.damage | player3unit.damage);
+        bool isdead2 = player2unit.TakeDamage(player0unit.damage|player1unit.damage|player3unit.damage);
+        bool isdead3 = player3unit.TakeDamage(player0unit.damage| player1unit.damage| player2unit.damage);
+        #endregion
+
+        #region 玩家的血量更新
+
+        player0Hud.SetHP(player0unit.currentHP);
+        player1Hud.SetHP(player1unit.currentHP);
+        player2Hud.SetHP(player2unit.currentHP);
+        player3Hud.SetHP(player3unit.currentHP);
+        #endregion
+
+
+        if (isdead0|| isdead1||isdead2||isdead3)
+        {
+            //如果死亡結束戰鬥
+            state = BattleState.Won;
+            //EndBattle();
+        }
+
+
+
+        else
+        {
+            state = BattleState.ChooseTurn;
+            //回到戰鬥畫面
+
+
+        }
     
     
     
