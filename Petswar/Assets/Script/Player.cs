@@ -41,6 +41,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
                 timer = 0;
                 //Fire();
                 pv.RPC("Fire", RpcTarget.All);
+                
             }
 
         }
