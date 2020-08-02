@@ -1,22 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class WindArea : MonoBehaviour
 {
-    public float strength;
+    public int strength;
     public Vector3 direction;
     public Image Windstr;
+    public Sprite[] WindUI;
     private float timer;
+
+    private void Awake()
+    {
+        WindUI = Resources.LoadAll<Sprite>("WindSprite");
+    }
 
     private void Update()
     {
-        Windstr.fillAmount = strength / 4f;
+        Windstr.sprite = WindUI[strength];
         timer += Time.deltaTime;
         if (timer >= 5f)
         {
-            strength = Random.Range(0, 5);
+            strength = Random.Range(0, 6);
             timer = 0;
         }
     }

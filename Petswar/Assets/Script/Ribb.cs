@@ -3,15 +3,17 @@ using UnityEngine.UI;
 
 public class Ribb : Dog
 {
-    // Start is called before the first frame update
-    void Start()
+   
+
+    private void Awake()
     {
-
+        hp_bar = GameObject.Find("ribbHp");
+        str_bar = GameObject.Find("ribbBar");
     }
-
-    // Update is called once per frame
     void Update()
     {
+        hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
+        str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
         AimTturtle();
         AimTdog();

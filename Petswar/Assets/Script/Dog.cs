@@ -6,33 +6,39 @@ public class Dog : MonoBehaviour
     public GameObject hit;
     [Header("集氣速度"), Range(0f, 5f)]
     public float speed = 4f;
-    private GameObject str_bar;
+    public float hp = 100f;
+    protected GameObject str_bar;
+    protected GameObject hp_bar;
     [Header("丟擲物品")]
     public GameObject prop;
 
     // 力道範圍
+    protected float scripthp;
     protected float str;
     protected float _str;
     protected float timer;
     protected Animator ani;
 
-
+    private void Awake()
+    {
+        hp_bar = GameObject.Find("dogHp");
+        str_bar = GameObject.Find("dogBar");
+    }
     private void Start()
     {
+        scripthp = hp;
         ani = GetComponent<Animator>();
-        str_bar = GameObject.Find("集氣條 (1)");
     }
     private void Update()
     {
+        hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
+        str_bar.GetComponent<Image>().fillAmount = _str / 600f;
+        str = Mathf.Clamp(_str, 0f, 600f);
+        AimTturtle();
+        AimTcat();
+        AimTribb();
 
-        {
-            str_bar.GetComponent<Image>().fillAmount = _str / 600f;
-            str = Mathf.Clamp(_str, 0f, 600f);
-            AimTturtle();
-            AimTcat();
-            AimTribb();
 
-        }
     }
     // 按Z瞄準烏龜發射
     private void AimTturtle()
@@ -98,5 +104,13 @@ public class Dog : MonoBehaviour
 
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "" && gameObject.name != this.name)
+        {
+
+        }
     }
 }
