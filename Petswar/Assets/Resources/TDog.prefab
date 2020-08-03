@@ -946,7 +946,6 @@ GameObject:
   - component: {fileID: 8942381559742175952}
   - component: {fileID: 7080362748972089628}
   - component: {fileID: 734793511}
-  - component: {fileID: -1558691198861688246}
   m_Layer: 0
   m_Name: TDog
   m_TagString: Untagged
@@ -1020,7 +1019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: {fileID: 0}
   speed: 4
-  str_bar: {fileID: 0}
+  hp: 100
   prop: {fileID: 15950736546916219, guid: 54f378644cf5972459838ef0cafe7c8a, type: 3}
 --- !u!136 &7080362748972089628
 CapsuleCollider:
@@ -1052,19 +1051,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-1558691198861688246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8768012324069672630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f53e48253fd86f4f8136447c40bfa15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HitTarget: {fileID: 0}
 --- !u!1 &9092209877636170718
 GameObject:
   m_ObjectHideFlags: 0

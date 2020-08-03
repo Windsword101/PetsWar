@@ -31,12 +31,18 @@ public class Dog : MonoBehaviour
     }
     private void Update()
     {
+        timer += Time.deltaTime;
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
-        AimTturtle();
-        AimTcat();
-        AimTribb();
+        Dead();
+        if (scripthp > 0)
+        {
+            AimTturtle();
+            AimTcat();
+            AimTribb();
+
+        }
 
 
     }
@@ -47,7 +53,7 @@ public class Dog : MonoBehaviour
         {
             hit = GameObject.Find("Tturtle");
             _str += speed;
-            timer += Time.deltaTime;
+
         }
         if (Input.GetKeyUp(KeyCode.Z))
         {
@@ -64,7 +70,7 @@ public class Dog : MonoBehaviour
         {
             hit = GameObject.Find("Tcat");
             _str += speed;
-            timer += Time.deltaTime;
+
         }
         if (Input.GetKeyUp(KeyCode.X))
         {
@@ -81,7 +87,7 @@ public class Dog : MonoBehaviour
         {
             hit = GameObject.Find("Tribb");
             _str += speed;
-            timer += Time.deltaTime;
+
         }
         if (Input.GetKeyUp(KeyCode.C))
         {
@@ -93,24 +99,33 @@ public class Dog : MonoBehaviour
     }
     public void Fire()
     {
-        {
-            GameObject temp = Instantiate(prop, transform.position, transform.rotation);
-            Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
-            temp.transform.LookAt(hit.transform.position);
-            temp.GetComponent<Rigidbody>().AddForce(0, 500, 0);
-            temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * str);
-            //temp.transform.position = Vector3.MoveTowards(temp.transform.position, player2.transform.position, speed);
-            Destroy(temp, 5f);
 
-        }
+        GameObject temp = Instantiate(prop, transform.position, transform.rotation);
+        Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+        temp.transform.LookAt(hit.transform.position);
+        temp.GetComponent<Rigidbody>().AddForce(0, 500, 0);
+        temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * str);
+        //temp.transform.position = Vector3.MoveTowards(temp.transform.position, player2.transform.position, speed);
+        Destroy(temp, 5f);
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "" && gameObject.name != this.name)
+
+        if (other.gameObject.tag == "Prop" && other.gameObject.name != prop.name + "(Clone)")
         {
 
+            scripthp -= 10f;
+            Destroy(other.gameObject);
         }
+
     }
+
+    public void Dead()
+    {
+        if (scripthp <= 0)
+            ani.SetTrigger("Death");
+    }
+
 }

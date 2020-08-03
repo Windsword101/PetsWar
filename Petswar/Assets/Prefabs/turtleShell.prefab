@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3647579439084212932}
   - component: {fileID: 4116269534887719651}
   - component: {fileID: 4106338201997220712}
+  - component: {fileID: -8593965287896877626}
   m_Layer: 0
   m_Name: turtleShell
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,3 +111,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.017637413, y: 0.008018116, z: 0.014072572}
   m_Center: {x: -0.0019942436, y: 0.0020561076, z: 0.0014973009}
+--- !u!114 &-8593965287896877626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072044422094923288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f8e32027e55294989b7f297338e7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inWindZone: 0
+  windZone: {fileID: 0}

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Ribb : Dog
 {
-   
+
 
     private void Awake()
     {
@@ -15,9 +15,14 @@ public class Ribb : Dog
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
-        AimTturtle();
-        AimTdog();
-        AimTCat();
+        Dead();
+        if (scripthp > 0)
+        {
+
+            AimTturtle();
+            AimTdog();
+            AimTCat();
+        }
     }
     // 按B瞄準狗發射
     private void AimTdog()

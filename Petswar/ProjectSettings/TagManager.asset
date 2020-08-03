@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WindArea
   - SpawnPoint
+  - Prop
   layers:
   - Default
   - TransparentFX

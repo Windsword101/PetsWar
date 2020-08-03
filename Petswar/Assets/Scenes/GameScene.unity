@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641156, b: 0.5748181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7075472, g: 0.7042097, b: 0.7042097, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5220,6 +5220,11 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2413761010640476639, guid: fb013a935cec5de4abe885dde7ac0a2f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5761622452412970149, guid: fb013a935cec5de4abe885dde7ac0a2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5280,7 +5285,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: TDog
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8768012324069672630, guid: fb013a935cec5de4abe885dde7ac0a2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 761057583386122568, guid: fb013a935cec5de4abe885dde7ac0a2f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fb013a935cec5de4abe885dde7ac0a2f, type: 3}
 --- !u!1001 &559909174
 PrefabInstance:
@@ -6401,7 +6412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: {fileID: 0}
   speed: 4
-  hp: 0
+  hp: 100
   prop: {fileID: 3072044422094923288, guid: e730723b01324104a8f472bdb2dc6d22, type: 3}
 --- !u!1001 &675467119
 PrefabInstance:
@@ -10126,7 +10137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: {fileID: 0}
   speed: 4
-  hp: 0
+  hp: 100
   prop: {fileID: 8176338796627638721, guid: 40ae6ef026151484586ccf09f178dc7a, type: 3}
 --- !u!1001 &1170936402
 PrefabInstance:
@@ -12018,7 +12029,7 @@ PrefabInstance:
         type: 3}
       propertyPath: prop
       value: 
-      objectReference: {fileID: 1615878287957893847, guid: c78b2029dfd2f6343b1838e80d7dc922,
+      objectReference: {fileID: 4169981692600970396, guid: 327f8637823228e499e9c54e0cd50e08,
         type: 3}
     - target: {fileID: 4038497542585343884, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}

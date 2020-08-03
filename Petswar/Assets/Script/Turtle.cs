@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Turtle : Dog
 {
-    
+
 
     private void Awake()
     {
@@ -16,9 +16,14 @@ public class Turtle : Dog
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
-        AimTribb();
-        AimTdog();
-        AimTCat();
+        Dead();
+        if (scripthp > 0)
+        {
+
+            AimTribb();
+            AimTdog();
+            AimTCat();
+        }
     }
     // 按B瞄準狗發射
     private void AimTdog()

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7585441506940292381}
   - component: {fileID: 5889051270937990858}
   - component: {fileID: 1794371512276018516}
+  - component: {fileID: 109124101479081069}
   m_Layer: 0
   m_Name: carrot
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +112,17 @@ CapsuleCollider:
   m_Height: 0.03
   m_Direction: 2
   m_Center: {x: 0.0006204692, y: 0.00085343386, z: -0.0023604962}
+--- !u!114 &109124101479081069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176338796627638721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f8e32027e55294989b7f297338e7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inWindZone: 0
+  windZone: {fileID: 0}
