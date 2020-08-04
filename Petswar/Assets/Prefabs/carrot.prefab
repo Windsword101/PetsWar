@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5889051270937990858}
   - component: {fileID: 1794371512276018516}
   - component: {fileID: 109124101479081069}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carrot
   m_TagString: Prop
   m_Icon: {fileID: 0}
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inWindZone: 0
   windZone: {fileID: 0}
+  turn: 5

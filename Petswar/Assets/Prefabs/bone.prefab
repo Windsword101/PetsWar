@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1003530035358343742}
   - component: {fileID: 3650296960170237669}
   - component: {fileID: -5256208315305519051}
-  m_Layer: 0
+  - component: {fileID: -1078984355581780048}
+  m_Layer: 10
   m_Name: bone
   m_TagString: Prop
   m_Icon: {fileID: 0}
@@ -126,3 +127,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inWindZone: 0
   windZone: {fileID: 0}
+  turn: 5
+--- !u!75 &-1078984355581780048
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15950736546916219}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}

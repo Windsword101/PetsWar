@@ -7,9 +7,12 @@ public class ThrowObject : MonoBehaviour
     public bool inWindZone = false;
     public GameObject windZone;
     Rigidbody rb;
+
+    public float turn = 5;
    
     void Start()
     {
+       
         rb = GetComponent<Rigidbody>();
     }
 
@@ -22,7 +25,7 @@ public class ThrowObject : MonoBehaviour
     }
     void Update()
     {
-        transform.Rotate(new Vector3(5f, 0, 0));
+        transform.Rotate(new Vector3(turn, 0, 0));
     }
 
     private void OnTriggerEnter(Collider coll)
@@ -32,6 +35,11 @@ public class ThrowObject : MonoBehaviour
             windZone = coll.gameObject;
             inWindZone = true;
         }
+        if (coll.gameObject.tag == "Protection")
+        {
+            Destroy(gameObject);
+            
+        }
     }
     private void OnTriggerExit(Collider coll)
     {
@@ -40,4 +48,5 @@ public class ThrowObject : MonoBehaviour
             inWindZone = false;
         }
     }
+   
 }

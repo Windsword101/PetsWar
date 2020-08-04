@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8131495371783109529}
   - component: {fileID: 5716676424619847414}
   - component: {fileID: 5372679774518778133}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: can
   m_TagString: Prop
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4169981692600970396}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.02, z: 0.03}
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inWindZone: 0
   windZone: {fileID: 0}
+  turn: 5

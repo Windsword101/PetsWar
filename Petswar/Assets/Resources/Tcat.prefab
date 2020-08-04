@@ -826,10 +826,10 @@ Animator:
   m_GameObject: {fileID: 6979165482642571493}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 18490b29598a0534bbee2b3f23c3c204, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3cfdc1022bbd634daa9ae6cdb3ea608, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -864,7 +864,7 @@ CapsuleCollider:
   m_Radius: 1.25
   m_Height: 4.95
   m_Direction: 1
-  m_Center: {x: 0, y: 2.05, z: 0}
+  m_Center: {x: 0, y: 2.44, z: 0}
 --- !u!54 &896852292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -893,6 +893,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787234b2a941ddb42ae2966ad13d22f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit: {fileID: 0}
+  speed: 4
+  hp: 100
+  prop: {fileID: 4169981692600970396, guid: 327f8637823228e499e9c54e0cd50e08, type: 3}
 --- !u!1 &7055483998847827388
 GameObject:
   m_ObjectHideFlags: 0

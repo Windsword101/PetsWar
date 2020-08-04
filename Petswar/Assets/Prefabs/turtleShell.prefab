@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4116269534887719651}
   - component: {fileID: 4106338201997220712}
   - component: {fileID: -8593965287896877626}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: turtleShell
   m_TagString: Prop
   m_Icon: {fileID: 0}
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inWindZone: 0
   windZone: {fileID: 0}
+  turn: 5

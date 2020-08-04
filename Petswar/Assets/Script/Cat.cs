@@ -14,11 +14,14 @@ public class Cat : Dog
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+        attCD.fillAmount = timer / _timer;
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
         Dead();
-        if (scripthp > 0)
+        Power();
+        if (scripthp > 0 && timer <= 0f)
         {
             AimTturtle();
             AimTdog();
@@ -77,4 +80,16 @@ public class Cat : Dog
             ani.SetTrigger("throw");
         }
     }
+    private void Power()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            huge = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            damage = 20f;
+        }
+    }
+    
 }

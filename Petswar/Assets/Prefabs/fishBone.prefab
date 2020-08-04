@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3958173653052154616}
   - component: {fileID: 75954964367327775}
   - component: {fileID: 4405428943374027165}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fishBone
   m_TagString: Prop
   m_Icon: {fileID: 0}
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inWindZone: 0
   windZone: {fileID: 0}
+  turn: 5

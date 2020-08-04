@@ -948,6 +948,7 @@ GameObject:
   - component: {fileID: 2241955902850068791}
   - component: {fileID: 2733863222048789271}
   - component: {fileID: 110495733}
+  - component: {fileID: 670478793}
   m_Layer: 0
   m_Name: Tturtle
   m_TagString: Untagged
@@ -983,10 +984,10 @@ Animator:
   m_GameObject: {fileID: 7799366033643185150}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 239f26d38aaddce4ab3580aee618e6c6, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c762e3784b441e544ab28b3bb2f44352, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1019,9 +1020,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.47
-  m_Height: 5.62
+  m_Height: 5.37
   m_Direction: 1
-  m_Center: {x: 0, y: 2.61, z: 0}
+  m_Center: {x: 0, y: 2.55, z: 0}
 --- !u!54 &110495733
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1038,6 +1039,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &670478793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799366033643185150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7684f755e6e197d44a3ec7afb8e35cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hit: {fileID: 0}
+  speed: 4
+  hp: 100
+  prop: {fileID: 3072044422094923288, guid: e730723b01324104a8f472bdb2dc6d22, type: 3}
 --- !u!1 &7857670028934405799
 GameObject:
   m_ObjectHideFlags: 0

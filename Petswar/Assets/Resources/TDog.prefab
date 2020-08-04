@@ -942,7 +942,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5761622452412970149}
   - component: {fileID: 2413761010640476639}
-  - component: {fileID: 761057583386122568}
   - component: {fileID: 8942381559742175952}
   - component: {fileID: 7080362748972089628}
   - component: {fileID: 734793511}
@@ -980,31 +979,15 @@ Animator:
   m_GameObject: {fileID: 8768012324069672630}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: aba521b5d06ffef47b37c49c5f183800, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74254b98ee39b2248a55148106909c9a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &761057583386122568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8768012324069672630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90de4f562b5970940807f0ee20bc7fef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: 
-  damage: 0
-  maxHP: 100
-  currentHP: 0
 --- !u!114 &8942381559742175952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,9 +1015,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.4
-  m_Height: 6.19
+  m_Height: 5.64
   m_Direction: 1
-  m_Center: {x: 0, y: 2.27, z: 0}
+  m_Center: {x: 0, y: 2.83, z: 0}
 --- !u!54 &734793511
 Rigidbody:
   m_ObjectHideFlags: 0

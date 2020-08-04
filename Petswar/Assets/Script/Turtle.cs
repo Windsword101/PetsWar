@@ -13,11 +13,14 @@ public class Turtle : Dog
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+        attCD.fillAmount = timer / _timer;
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
         Dead();
-        if (scripthp > 0)
+        Power();
+        if (scripthp > 0 && timer <= 0f)
         {
 
             AimTribb();
@@ -74,6 +77,17 @@ public class Turtle : Dog
             timer = 0;
             Fire();
             ani.SetTrigger("throw");
+        }
+    }
+    private void Power()
+    {
+        if (Input.GetKeyDown(KeyCode.Home))
+        {
+            huge = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Insert))
+        {
+            damage = 20f;
         }
     }
 }

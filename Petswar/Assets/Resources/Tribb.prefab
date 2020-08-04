@@ -637,6 +637,7 @@ GameObject:
   - component: {fileID: 3553805620879899453}
   - component: {fileID: 5726447633247146212}
   - component: {fileID: 940408618}
+  - component: {fileID: 1155435325}
   m_Layer: 0
   m_Name: Tribb
   m_TagString: Untagged
@@ -671,10 +672,10 @@ Animator:
   m_GameObject: {fileID: 4787408268082038060}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 88354daf88f4c8546b27d38b9475b14d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdcb033673b4d714fb0f0206af751b85, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -709,7 +710,7 @@ CapsuleCollider:
   m_Radius: 1.32
   m_Height: 5.71
   m_Direction: 1
-  m_Center: {x: 0, y: 2.37, z: 0}
+  m_Center: {x: 0, y: 2.86, z: 0}
 --- !u!54 &940408618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -726,6 +727,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1155435325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787408268082038060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33641f22daaa49e4db0a5f686a0eabc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hit: {fileID: 0}
+  speed: 4
+  hp: 100
+  prop: {fileID: 8176338796627638721, guid: 40ae6ef026151484586ccf09f178dc7a, type: 3}
 --- !u!1 &4846063568067410037
 GameObject:
   m_ObjectHideFlags: 0
