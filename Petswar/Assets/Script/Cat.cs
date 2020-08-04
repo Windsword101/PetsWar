@@ -19,6 +19,11 @@ public class Cat : Dog
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
+        if (protection == true)
+        {
+            StartCoroutine("Protection");
+        }
+
         Dead();
         Power();
         if (scripthp > 0 && timer <= 0f)
@@ -82,14 +87,9 @@ public class Cat : Dog
     }
     private void Power()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            huge = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            damage = 20f;
-        }
+        if (Input.GetKeyDown(KeyCode.Keypad5)) huge = true;
+        if (Input.GetKeyDown(KeyCode.Keypad4)) power = true;
+        if (Input.GetKeyDown(KeyCode.Keypad6)) protection = true;
     }
     
 }

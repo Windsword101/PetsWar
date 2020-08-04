@@ -18,6 +18,10 @@ public class Turtle : Dog
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
+        if (protection == true)
+        {
+            StartCoroutine("Protection");
+        }
         Dead();
         Power();
         if (scripthp > 0 && timer <= 0f)
@@ -81,14 +85,9 @@ public class Turtle : Dog
     }
     private void Power()
     {
-        if (Input.GetKeyDown(KeyCode.Home))
-        {
-            huge = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Insert))
-        {
-            damage = 20f;
-        }
+        if (Input.GetKeyDown(KeyCode.Home)) huge = true;
+        if (Input.GetKeyDown(KeyCode.Insert)) power = true;
+        if (Input.GetKeyDown(KeyCode.PageUp)) protection = true;
     }
 }
 

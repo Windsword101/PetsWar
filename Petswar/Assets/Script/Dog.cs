@@ -42,6 +42,7 @@ public class Dog : MonoBehaviour
     }
     private void Update()
     {
+        
         timer -= Time.deltaTime;
         attCD.fillAmount = timer / _timer;
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
@@ -143,8 +144,10 @@ public class Dog : MonoBehaviour
     public IEnumerator Protection()
     {
         Protectionsphere.SetActive(true);
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSeconds(2f);
+        protection = false;
         Protectionsphere.SetActive(false);
+        
     }
 
 
