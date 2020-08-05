@@ -14,7 +14,12 @@ public class Turtle : Dog
     void Update()
     {
         timer -= Time.deltaTime;
+        HugeTimer -= Time.deltaTime;
+        protectionTimer -= Time.deltaTime;
         attCD.fillAmount = timer / _timer;
+        powerCD.fillAmount = powerTimer / _powerTimer;
+        hugeCD.fillAmount = HugeTimer / _HugeTimer;
+        protectionCD.fillAmount = protectionTimer / _protectionTimer;
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
@@ -85,9 +90,21 @@ public class Turtle : Dog
     }
     private void Power()
     {
-        if (Input.GetKeyDown(KeyCode.Home)) huge = true;
-        if (Input.GetKeyDown(KeyCode.Insert)) power = true;
-        if (Input.GetKeyDown(KeyCode.PageUp)) protection = true;
+        if (Input.GetKeyDown(KeyCode.Home) && HugeTimer <= 0)
+        {
+            huge = true;
+            HugeTimer = 10f;
+        }
+        if (Input.GetKeyDown(KeyCode.Insert) && powerTimer <= 0)
+        {
+            power = true;
+            powerTimer = 3f;
+        }
+        if (Input.GetKeyDown(KeyCode.PageUp) && protectionTimer <= 0)
+        {
+            protection = true;
+            protectionTimer = 15f;
+        }
     }
 }
 

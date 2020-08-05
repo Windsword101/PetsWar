@@ -14,7 +14,7 @@ public class Dog : MonoBehaviour
     public GameObject prop;
     [Header("傷害值")]
     public float damage = 10f;
-    public Image attCD;
+    public Image attCD, powerCD, hugeCD, protectionCD;
 
     // 力道範圍
     protected GameObject str_bar;
@@ -23,9 +23,14 @@ public class Dog : MonoBehaviour
     protected float str;
     protected float _str;
     protected float timer;
-    protected float _timer = 2f;
+    protected float _timer = 1.5f;
     protected Animator ani;
     protected bool huge = false, power = false, protection = false;
+    protected float powerTimer, _powerTimer = 3f;
+    protected float HugeTimer, _HugeTimer = 10f;
+    protected float protectionTimer, _protectionTimer = 15f;
+
+
 
 
     private void Awake()
@@ -38,17 +43,24 @@ public class Dog : MonoBehaviour
     {
         Physics.IgnoreLayerCollision(8, 9);
         scripthp = hp;
+        powerTimer = _powerTimer;
+        HugeTimer = _HugeTimer;
+        protectionTimer = _protectionTimer;
         ani = GetComponent<Animator>();
     }
     private void Update()
     {
-        
         timer -= Time.deltaTime;
+        HugeTimer -= Time.deltaTime;
+        protectionTimer -= Time.deltaTime;
         attCD.fillAmount = timer / _timer;
+        powerCD.fillAmount = powerTimer / _powerTimer;
+        hugeCD.fillAmount = HugeTimer / _HugeTimer;
+        protectionCD.fillAmount = protectionTimer / _protectionTimer;
         hp_bar.GetComponent<Image>().fillAmount = scripthp / hp;
         str_bar.GetComponent<Image>().fillAmount = _str / 600f;
         str = Mathf.Clamp(_str, 0f, 600f);
-        if(protection == true)
+        if (protection == true)
         {
             StartCoroutine("Protection");
         }
@@ -116,9 +128,23 @@ public class Dog : MonoBehaviour
     }
     private void Power()
     {
-        if (Input.GetKeyDown(KeyCode.S)) huge = true;
-        if (Input.GetKeyDown(KeyCode.A)) power = true;
-        if (Input.GetKeyDown(KeyCode.D)) protection = true;
+        if (Input.GetKeyDown(KeyCode.S) && HugeTimer <= 0)
+        {
+            huge = true;
+            HugeTimer = 10f;
+        }
+        if (Input.GetKeyDown(KeyCode.A) && powerTimer <= 0)
+        {
+            
+            power = true;
+            powerTimer = 3f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D) && protectionTimer <= 0)
+        {
+            protection = true;
+            protectionTimer = 15f;
+        }
     }
     public void Fire()
     {
@@ -136,10 +162,10 @@ public class Dog : MonoBehaviour
         //Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
         temp.GetComponent<Rigidbody>().AddForce(0, 500, 0);
         temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * str);
-        Destroy(temp, 5f);
+        Destroy(temp, 20f);
         huge = false;
         power = false;
-        timer = 2f;
+        timer = 1.5f;
     }
     public IEnumerator Protection()
     {
@@ -147,7 +173,7 @@ public class Dog : MonoBehaviour
         yield return new WaitForSeconds(2f);
         protection = false;
         Protectionsphere.SetActive(false);
-        
+
     }
 
 
@@ -158,6 +184,7 @@ public class Dog : MonoBehaviour
         {
             ani.SetTrigger("GetHit");
             scripthp -= damage;
+            powerTimer--;
             Destroy(other.gameObject);
         }
 
