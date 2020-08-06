@@ -29,7 +29,7 @@ public class Dog : MonoBehaviour
     protected float powerTimer, _powerTimer = 3f;
     protected float HugeTimer, _HugeTimer = 10f;
     protected float protectionTimer, _protectionTimer = 15f;
-
+    protected AudioSource throwsound, deadsound, hitsound;
 
 
 
@@ -41,6 +41,9 @@ public class Dog : MonoBehaviour
     }
     private void Start()
     {
+        deadsound = GameObject.Find("Dead").GetComponent<AudioSource>();
+        throwsound = GameObject.Find("Throw").GetComponent<AudioSource>();
+        hitsound = GameObject.Find("HitSound").GetComponent<AudioSource>();
         Physics.IgnoreLayerCollision(8, 9);
         scripthp = hp;
         powerTimer = _powerTimer;
@@ -50,6 +53,7 @@ public class Dog : MonoBehaviour
     }
     private void Update()
     {
+
         timer -= Time.deltaTime;
         HugeTimer -= Time.deltaTime;
         protectionTimer -= Time.deltaTime;
@@ -64,15 +68,16 @@ public class Dog : MonoBehaviour
         {
             StartCoroutine("Protection");
         }
+        if(scripthp > 0)
         Power();
-        Dead();
+        
         if (scripthp > 0 && timer <= 0f)
         {
             AimTturtle();
             AimTcat();
             AimTribb();
         }
-
+        
 
     }
     // 按Z瞄準烏龜發射
@@ -135,7 +140,7 @@ public class Dog : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A) && powerTimer <= 0)
         {
-            
+
             power = true;
             powerTimer = 3f;
         }
@@ -156,16 +161,17 @@ public class Dog : MonoBehaviour
             temp.GetComponent<Rigidbody>().useGravity = false;
             temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * str * 2);
-            //temp.transform.Rotate(new Vector3(50f, 0, 0));
+
             temp.GetComponent<ThrowObject>().turn = 999f;
         }
-        //Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+
         temp.GetComponent<Rigidbody>().AddForce(0, 500, 0);
         temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * str);
         Destroy(temp, 20f);
         huge = false;
         power = false;
         timer = 1.5f;
+        throwsound.Play();
     }
     public IEnumerator Protection()
     {
@@ -182,10 +188,12 @@ public class Dog : MonoBehaviour
 
         if (other.gameObject.tag == "Prop" && other.gameObject.name != prop.name + "(Clone)")
         {
+            hitsound.Play();
             ani.SetTrigger("GetHit");
             scripthp -= damage;
             powerTimer--;
             Destroy(other.gameObject);
+            Dead();
         }
 
     }
@@ -194,7 +202,9 @@ public class Dog : MonoBehaviour
     {
         if (scripthp <= 0)
         {
+            deadsound.Play();
             ani.SetTrigger("Death");
+            GetComponent<Collider>().enabled = false;
         }
     }
 

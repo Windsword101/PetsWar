@@ -26,8 +26,8 @@ public class Ribb : Dog
         {
             StartCoroutine("Protection");
         }
-        Dead();
-        Power();
+        if (scripthp > 0)
+            Power();
         if (scripthp > 0 && timer <= 0f)
         {
 
