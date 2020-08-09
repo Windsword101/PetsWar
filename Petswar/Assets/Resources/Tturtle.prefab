@@ -1172,6 +1172,7 @@ MonoBehaviour:
   powerCD: {fileID: 0}
   hugeCD: {fileID: 0}
   protectionCD: {fileID: 0}
+  scripthp: 0
 --- !u!1 &7857670028934405799
 GameObject:
   m_ObjectHideFlags: 0

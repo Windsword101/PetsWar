@@ -1121,6 +1121,7 @@ MonoBehaviour:
   powerCD: {fileID: 0}
   hugeCD: {fileID: 0}
   protectionCD: {fileID: 0}
+  scripthp: 0
 --- !u!136 &7080362748972089628
 CapsuleCollider:
   m_ObjectHideFlags: 0

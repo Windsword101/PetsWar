@@ -15,11 +15,11 @@ public class Dog : MonoBehaviour
     [Header("傷害值")]
     public float damage = 10f;
     public Image attCD, powerCD, hugeCD, protectionCD;
+    public float scripthp;
 
     // 力道範圍
     protected GameObject str_bar;
     protected GameObject hp_bar;
-    protected float scripthp;
     protected float str;
     protected float _str;
     protected float timer;
@@ -179,7 +179,6 @@ public class Dog : MonoBehaviour
         yield return new WaitForSeconds(2f);
         protection = false;
         Protectionsphere.SetActive(false);
-
     }
 
 
@@ -195,7 +194,6 @@ public class Dog : MonoBehaviour
             Destroy(other.gameObject);
             Dead();
         }
-
     }
 
     public void Dead()
