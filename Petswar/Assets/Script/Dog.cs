@@ -23,7 +23,7 @@ public class Dog : MonoBehaviour
     protected float str;
     protected float _str;
     protected float timer;
-    protected float _timer = 1.5f;
+    protected float _timer = 1f;
     protected Animator ani;
     protected bool huge = false, power = false, protection = false;
     protected float powerTimer, _powerTimer = 3f;
@@ -170,7 +170,7 @@ public class Dog : MonoBehaviour
         Destroy(temp, 20f);
         huge = false;
         power = false;
-        timer = 1.5f;
+        timer = 1f;
         throwsound.Play();
     }
     public IEnumerator Protection()
