@@ -32,11 +32,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dog = GameObject.Find("TDog").GetComponent<Dog>();
-        cat = GameObject.Find("Tcat").GetComponent<Cat>();
-        ribb = GameObject.Find("Tribb").GetComponent<Ribb>();
-        turtle = GameObject.Find("Tturtle").GetComponent<Turtle>();
-
+      
     }
 
     // Update is called once per frame

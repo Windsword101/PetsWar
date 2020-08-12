@@ -205,5 +205,4 @@ public class Dog : MonoBehaviour
             GetComponent<Collider>().enabled = false;
         }
     }
-
 }
