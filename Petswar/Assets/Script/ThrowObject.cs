@@ -40,12 +40,21 @@ public class ThrowObject : MonoBehaviour
             Destroy(gameObject);
             
         }
+        if (coll.gameObject.tag == "Prop")
+        {
+            gameObject.GetComponent<Collider>().isTrigger = false;
+
+        }
     }
     private void OnTriggerExit(Collider coll)
     {
         if(coll.gameObject.tag == "WindArea")
         {
             inWindZone = false;
+        }
+        if(coll.gameObject.tag == "Prop")
+        {
+            gameObject.GetComponent<Collider>().isTrigger = true;
         }
     }
    

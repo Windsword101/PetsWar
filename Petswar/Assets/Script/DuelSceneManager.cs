@@ -9,10 +9,15 @@ public class DuelSceneManager : MonoBehaviour
     public GameManager gamemanager;
     public GameObject GM;
     public GameObject duelwinner;
+    public GameObject rules,timesup;
+    public Text countdown;
     public Text winnertext;
     public GameObject dog, cat, ribb, turtle, player1, player2;
+    public static float timer = 5f;
+    public static bool pause,restart = false;
     private void Awake()
     {
+        rules = GameObject.Find("規則說明");
         GM = GameObject.Find("GM");
         gamemanager = GameObject.Find("GM").GetComponent<GameManager>();
         if (gamemanager.dog.scripthp > 0 && gamemanager.cat.scripthp > 0)
@@ -98,12 +103,17 @@ public class DuelSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        pause = true;
+        StartCoroutine("Delay");
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (pause == false && timer > 0 && duelwinner.activeSelf == false) timer -= Time.deltaTime;
+        countdown.text = timer.ToString("F2");
+        if (timer <= 0) timesup.SetActive(true);
         if (dog.GetComponent<DuelDog>().dead == false && cat.GetComponent<DuelCat>().dead == true && ribb.GetComponent<DuelRibb>().dead == true && turtle.GetComponent<DuelTurtle>().dead == true)
         {
             duelwinner.SetActive(true);
@@ -117,7 +127,7 @@ public class DuelSceneManager : MonoBehaviour
             Destroy(GM);
         }
         else if (dog.GetComponent<DuelDog>().dead == true && cat.GetComponent<DuelCat>().dead == true && ribb.GetComponent<DuelRibb>().dead == false && turtle.GetComponent<DuelTurtle>().dead == true)
-            {
+        {
             duelwinner.SetActive(true);
             winnertext.text = "兔子獲勝！";
             Destroy(GM);
@@ -128,16 +138,22 @@ public class DuelSceneManager : MonoBehaviour
             winnertext.text = "烏龜獲勝！";
             Destroy(GM);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SceneManager.LoadScene("GameScene");
-        }
-        if (Input.GetKeyDown(KeyCode.W)) SceneManager.LoadScene("DuelScene");
     }
     public void Menu()
     {
         Application.LoadLevel("MenuScene");
         Destroy(GM);
-        
+    }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSecondsRealtime(5f);
+        Time.timeScale = 1;
+        rules.SetActive(false);
+        pause = false;
+    }
+    public void Restart()
+    {
+        timesup.SetActive(false);
+        timer = 5f;        
     }
 }

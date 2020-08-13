@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
@@ -76,11 +75,11 @@ public class GameManager : MonoBehaviour
             }
             if (cdtext == true) countdown.GetComponent<Text>().text = timer.ToString("F0");
             if (timer <= 0) SceneManager.LoadScene("DuelScene");
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene("MenuScene");
+                Destroy(gameObject);
             }
-            if (Input.GetKeyDown(KeyCode.W)) SceneManager.LoadScene("DuelScene");
         }
     }
     public void Menu()

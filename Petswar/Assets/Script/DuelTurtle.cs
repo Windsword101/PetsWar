@@ -6,7 +6,13 @@ public class DuelTurtle : DuelDog
 {
     void Update()
     {
-        if (dead == false) Power();
+        if (DuelSceneManager.timer >= 4.5f)
+        {
+            fire = true;
+            fake = true;
+            protection = true;
+        }
+        if (DuelSceneManager.pause == false && dead == false) Power();
     }
     private void Power()
     {

@@ -161,10 +161,8 @@ public class Dog : MonoBehaviour
             temp.GetComponent<Rigidbody>().useGravity = false;
             temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * str * 2);
-
             temp.GetComponent<ThrowObject>().turn = 999f;
         }
-
         temp.GetComponent<Rigidbody>().AddForce(0, 500, 0);
         temp.GetComponent<Rigidbody>().AddForce(temp.transform.forward * str);
         Destroy(temp, 20f);

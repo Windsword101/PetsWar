@@ -25,7 +25,13 @@ public class DuelDog : MonoBehaviour
     }
     private void Update()
     {
-        if (dead == false) Power();
+        if (DuelSceneManager.timer >= 4.5f)
+        {
+            fire = true;
+            fake = true;
+            protection = true;
+        }
+        if (DuelSceneManager.pause == false && dead == false) Power();
     }
     private void Power()
     {
@@ -72,7 +78,7 @@ public class DuelDog : MonoBehaviour
     public IEnumerator Protection()
     {
         Protectionsphere.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Protectionsphere.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
