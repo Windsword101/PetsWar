@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class Dog : MonoBehaviour
@@ -16,6 +16,12 @@ public class Dog : MonoBehaviour
     public float damage = 10f;
     public Image attCD, powerCD, hugeCD, protectionCD;
     public float scripthp;
+    [Header("移動速度")]
+    public float movespeed;
+    [Header("移動範圍")]
+    public float moveArea;
+    protected Vector3 angle = new Vector3(0, 180, 0);
+    protected Vector3 originalposition;
 
     // 力道範圍
     protected GameObject str_bar;
@@ -30,6 +36,7 @@ public class Dog : MonoBehaviour
     protected float HugeTimer, _HugeTimer = 10f;
     protected float protectionTimer, _protectionTimer = 15f;
     protected AudioSource throwsound, deadsound, hitsound;
+    protected Rigidbody rb;
 
 
 
@@ -41,6 +48,8 @@ public class Dog : MonoBehaviour
     }
     private void Start()
     {
+        originalposition = transform.position;
+        rb = gameObject.GetComponent<Rigidbody>();
         deadsound = GameObject.Find("Dead").GetComponent<AudioSource>();
         throwsound = GameObject.Find("Throw").GetComponent<AudioSource>();
         hitsound = GameObject.Find("HitSound").GetComponent<AudioSource>();
@@ -68,16 +77,20 @@ public class Dog : MonoBehaviour
         {
             StartCoroutine("Protection");
         }
-        if(scripthp > 0)
-        Power();
-        
+        if (scripthp > 0)
+        {
+
+            Power();
+        }
+        Move();
+
         if (scripthp > 0 && timer <= 0f)
         {
             AimTturtle();
             AimTcat();
             AimTribb();
         }
-        
+
 
     }
     // 按Z瞄準烏龜發射
@@ -202,5 +215,22 @@ public class Dog : MonoBehaviour
             ani.SetTrigger("Death");
             GetComponent<Collider>().enabled = false;
         }
+    }
+    private void Move()
+    {
+        
+        float h = Input.GetAxis("Horizontal1");
+        float v = Input.GetAxis("Vertical1");
+        rb.AddForce(transform.forward * Math.Abs(h) * movespeed);
+        rb.AddForce(transform.forward * Math.Abs(v) * movespeed);
+
+        if (v == 1) angle = new Vector3(0, 0, 0);               // 前 Y 0
+        else if (v == -1) angle = new Vector3(0, 180, 0);       // 後 Y 180
+        else if (h == 1) angle = new Vector3(0, 90, 0);         // 右 Y 90
+        else if (h == -1) angle = new Vector3(0, 270, 0);       // 左 Y 270
+        // 只要類別後面有 : MonoBehaviour
+        // 就可以直接使用關鍵字 transform 取得此物件的 Transform 元件
+        transform.eulerAngles = angle;
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, originalposition.x - moveArea, originalposition.x + moveArea), transform.position.y, Mathf.Clamp(transform.position.z, originalposition.z - moveArea, originalposition.z + moveArea));
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 public class Turtle : Dog
 {
@@ -29,6 +30,8 @@ public class Turtle : Dog
         }
         if (scripthp > 0)
             Power();
+        Move();
+
         if (scripthp > 0 && timer <= 0f)
         {
 
@@ -105,6 +108,23 @@ public class Turtle : Dog
             protection = true;
             protectionTimer = 15f;
         }
+    }
+    private void Move()
+    {
+        float h = Input.GetAxis("Horizontal3");
+        float v = Input.GetAxis("Vertical3");
+        rb.AddForce(transform.forward * Math.Abs(h) * movespeed);
+        rb.AddForce(transform.forward * Math.Abs(v) * movespeed);
+
+        if (v == 1) angle = new Vector3(0, 0, 0);               // 前 Y 0
+        else if (v == -1) angle = new Vector3(0, 180, 0);       // 後 Y 180
+        else if (h == 1) angle = new Vector3(0, 90, 0);         // 右 Y 90
+        else if (h == -1) angle = new Vector3(0, 270, 0);       // 左 Y 270
+        // 只要類別後面有 : MonoBehaviour
+        // 就可以直接使用關鍵字 transform 取得此物件的 Transform 元件
+        transform.eulerAngles = angle;
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, originalposition.x - moveArea, originalposition.x + moveArea), transform.position.y, Mathf.Clamp(transform.position.z, originalposition.z - moveArea, originalposition.z + moveArea));
+
     }
 }
 
