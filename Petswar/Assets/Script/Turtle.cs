@@ -11,7 +11,11 @@ public class Turtle : Dog
         hp_bar = GameObject.Find("turtleHp");
         str_bar = GameObject.Find("turtleBar");
     }
-    // Update is called once per frame
+    private void FixedUpdate()
+    {
+        if (Application.loadedLevelName == "Game03_Balance") Move();
+
+    }
     void Update()
     {
         timer -= Time.deltaTime;
@@ -30,7 +34,6 @@ public class Turtle : Dog
         }
         if (scripthp > 0)
             Power();
-        Move();
 
         if (scripthp > 0 && timer <= 0f)
         {

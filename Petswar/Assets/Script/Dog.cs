@@ -60,6 +60,11 @@ public class Dog : MonoBehaviour
         protectionTimer = _protectionTimer;
         ani = GetComponent<Animator>();
     }
+    private void FixedUpdate()
+    {
+        if (Application.loadedLevelName == "Game03_Balance") Move();
+
+    }
     private void Update()
     {
 
@@ -82,8 +87,6 @@ public class Dog : MonoBehaviour
 
             Power();
         }
-        Move();
-
         if (scripthp > 0 && timer <= 0f)
         {
             AimTturtle();
@@ -218,7 +221,7 @@ public class Dog : MonoBehaviour
     }
     private void Move()
     {
-        
+
         float h = Input.GetAxis("Horizontal1");
         float v = Input.GetAxis("Vertical1");
         rb.AddForce(transform.forward * Math.Abs(h) * movespeed);

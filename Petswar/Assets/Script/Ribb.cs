@@ -12,6 +12,11 @@ public class Ribb : Dog
         hp_bar = GameObject.Find("ribbHp");
         str_bar = GameObject.Find("ribbBar");
     }
+    private void FixedUpdate()
+    {
+        if (Application.loadedLevelName == "Game03_Balance") Move();
+
+    }
     void Update()
     {
         timer -= Time.deltaTime;
@@ -30,7 +35,6 @@ public class Ribb : Dog
         }
         if (scripthp > 0)
             Power();
-        Move();
         if (scripthp > 0 && timer <= 0f)
         {
 

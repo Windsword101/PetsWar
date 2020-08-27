@@ -13,7 +13,11 @@ public class Cat : Dog
         str_bar = GameObject.Find("catBar");
     }
 
-    // Update is called once per frame
+    private void FixedUpdate()
+    {
+        if (Application.loadedLevelName == "Game03_Balance") Move();
+
+    }
     void Update()
     {
         timer -= Time.deltaTime;
@@ -33,8 +37,6 @@ public class Cat : Dog
 
         if (scripthp > 0)
             Power();
-        Move();
-
         if (scripthp > 0 && timer <= 0f)
         {
             AimTturtle();
