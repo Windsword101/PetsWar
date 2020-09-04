@@ -9,6 +9,7 @@ TagManager:
   - Prop
   - Protection
   - GameManager
+  - Hat
   layers:
   - Default
   - TransparentFX
