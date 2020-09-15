@@ -1,19 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using KID;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public float a = 10;
-    // Start is called before the first frame update
-    void Start()
+    public Button a;
+    IEnumerator Start()
     {
-        
-    }
+        string b = RandomScene.LoadRandomScene();
+        print(b);
+        if (GameObject.FindGameObjectsWithTag("Button").Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        yield return null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        a.onClick.AddListener(() =>
+        {
+            string a = RandomScene.LoadRandomScene();
+            print(a);
+        }
+        );
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 
 
-public class Ribb : Dog
+public class Ribb : PlayerControl
 {
 
 

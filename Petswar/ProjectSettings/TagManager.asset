@@ -10,6 +10,7 @@ TagManager:
   - Protection
   - GameManager
   - Hat
+  - Button
   layers:
   - Default
   - TransparentFX

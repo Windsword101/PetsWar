@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 
 
-public class Cat : Dog
+public class Cat : PlayerControl
 {
 
 

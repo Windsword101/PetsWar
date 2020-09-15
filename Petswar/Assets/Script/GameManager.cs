@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Dog dog;
-    public Cat cat;
-    public Ribb ribb;
-    public Turtle turtle;
+    public PlayerControl dog,cat,ribb,turtle;
     public GameObject Winner;
     public Text winnertext;
     public GameObject countdown;

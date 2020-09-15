@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Petswar",
+"productVersion": "0.1",
+"dataUrl": "Game02_running.data.unityweb",
+"wasmCodeUrl": "Game02_running.wasm.code.unityweb",
+"wasmFrameworkUrl": "Game02_running.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": true,
+"multithreading": false,
+"unityVersion": "2019.4.0f1"
+}

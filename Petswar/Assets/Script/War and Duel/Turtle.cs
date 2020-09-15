@@ -2,7 +2,7 @@
 using UnityEngine;
 using System;
 
-public class Turtle : Dog
+public class Turtle : PlayerControl
 {
 
 
@@ -37,7 +37,6 @@ public class Turtle : Dog
 
         if (scripthp > 0 && timer <= 0f)
         {
-
             AimTribb();
             AimTdog();
             AimTCat();
