@@ -51,6 +51,11 @@ public class PlayerControl : MonoBehaviour
     private bool run = false;
     private float runspeed;
     #endregion
+    #region 搶蛋糕模式
+    [Header("持有蛋糕時間計算")]
+    public Text game04_scoretext;
+    private float game04_score;
+    #endregion
 
     private void Awake()
     {
@@ -119,6 +124,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void Update()
     {
+        if (Application.loadedLevelName == "Game04_Tagyoure it") Score();
         if (Application.loadedLevelName == "Game02_running") Running();
 
         if (Application.loadedLevelName == "GameScene")
@@ -264,7 +270,7 @@ public class PlayerControl : MonoBehaviour
             Dead();
         }
         //鬼抓人場景碰到帽子
-        if (other.gameObject.tag == "Hat")
+        if (other.gameObject.tag == "Cake")
         {
             other.gameObject.transform.SetParent(gameObject.transform);
             other.gameObject.transform.localPosition = new Vector3(0, 1.125f, 2);
@@ -294,23 +300,26 @@ public class PlayerControl : MonoBehaviour
     private void Move()
     {
 
-        if (Input.GetKey(playerdata.left)) h = -1;
-        if (Input.GetKey(playerdata.right)) h = 1;
-        if (Input.GetKey(playerdata.forwad)) v = 1;
-        if (Input.GetKey(playerdata.backward)) v = -1;
-        if (Input.GetKeyUp(playerdata.left)) h = 0;
-        if (Input.GetKeyUp(playerdata.right)) h = 0;
-        if (Input.GetKeyUp(playerdata.forwad)) v = 0;
-        if (Input.GetKeyUp(playerdata.backward)) v = 0;
-        //float h = Input.GetAxis("Horizontal1");
-        //float v = Input.GetAxis("Vertical1");
-        rb.AddForce(transform.forward * Math.Abs(h) * movespeed);
-        rb.AddForce(transform.forward * Math.Abs(v) * movespeed);
-
-        if (v == 1) angle = new Vector3(0, 0, 0);               // 前 Y 0
-        else if (v == -1) angle = new Vector3(0, 180, 0);       // 後 Y 180
-        else if (h == 1) angle = new Vector3(0, 90, 0);         // 右 Y 90
-        else if (h == -1) angle = new Vector3(0, 270, 0);       // 左 Y 270
+        if (Input.GetKey(playerdata.left))
+        {
+            angle = new Vector3(0, 270, 0);
+            rb.AddForce(transform.forward * movespeed);
+        }
+        if (Input.GetKey(playerdata.right))
+        {
+            angle = new Vector3(0, 90, 0);
+            rb.AddForce(transform.forward * movespeed);
+        }
+        if (Input.GetKey(playerdata.forward))
+        {
+            angle = new Vector3(0, 0, 0);
+            rb.AddForce(transform.forward * movespeed);
+        }
+        if (Input.GetKey(playerdata.backward))
+        {
+            angle = new Vector3(0, 180, 0);
+            rb.AddForce(transform.forward * movespeed);
+        }
         transform.eulerAngles = angle;
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, originalposition.x - moveArea, originalposition.x + moveArea), transform.position.y, Mathf.Clamp(transform.position.z, originalposition.z - moveArea, originalposition.z + moveArea));
     }
@@ -339,6 +348,15 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyUp(playerdata.right))
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = stand;
+        }
+    }
+    
+    private void Score()
+    {
+        game04_scoretext.text = game04_score.ToString("F2");
+        if(gameObject.transform.Find("Cake") != null)
+        {
+            game04_score += Time.deltaTime;
         }
     }
 }

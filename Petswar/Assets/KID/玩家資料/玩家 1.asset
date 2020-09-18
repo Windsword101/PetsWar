@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca927c9b059803d4ba9d6d0b71d2033d, type: 3}
   m_Name: "\u73A9\u5BB6 1"
   m_EditorClassIdentifier: 
-  forwad: 119
+  forward: 119
   backward: 115
   left: 97
   right: 100
@@ -20,3 +20,6 @@ MonoBehaviour:
   b: 120
   c: 99
   character: 0
+  targetA: {fileID: 0}
+  targetB: {fileID: 0}
+  targetC: {fileID: 0}

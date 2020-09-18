@@ -14,7 +14,7 @@ public class Balance_Column : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (transform.localScale.x >= 1 && timer >= 5)
+        if (transform.localScale.x >= 1.5 && timer >= 5)
         {
             transform.localScale += scaleChange;
             timer = 0;

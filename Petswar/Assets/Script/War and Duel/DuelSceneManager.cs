@@ -24,10 +24,10 @@ public class DuelSceneManager : MonoBehaviour
         {
             dog.SetActive(true);
             cat.SetActive(true);
-            dog.GetComponent<DuelDog>().hit = cat;
-            cat.GetComponent<DuelCat>().hit = dog;
-            ribb.GetComponent<DuelRibb>().dead = true;
-            turtle.GetComponent<DuelTurtle>().dead = true;
+            dog.GetComponent<PlayerControlDuel>().hit = cat;
+            cat.GetComponent<PlayerControlDuel>().hit = dog;
+            ribb.GetComponent<PlayerControlDuel>().dead = true;
+            turtle.GetComponent<PlayerControlDuel>().dead = true;
             dog.transform.position = player1.transform.position;
             dog.transform.rotation = player1.transform.rotation;
             cat.transform.position = player2.transform.position;
@@ -38,10 +38,10 @@ public class DuelSceneManager : MonoBehaviour
         {
             dog.SetActive(true);
             ribb.SetActive(true);
-            dog.GetComponent<DuelDog>().hit = ribb;
-            ribb.GetComponent<DuelRibb>().hit = dog;
-            cat.GetComponent<DuelCat>().dead = true;
-            turtle.GetComponent<DuelTurtle>().dead = true;
+            dog.GetComponent<PlayerControlDuel>().hit = ribb;
+            ribb.GetComponent<PlayerControlDuel>().hit = dog;
+            cat.GetComponent<PlayerControlDuel>().dead = true;
+            turtle.GetComponent<PlayerControlDuel>().dead = true;
             dog.transform.position = player1.transform.position;
             dog.transform.rotation = player1.transform.rotation;
             ribb.transform.position = player2.transform.position;
@@ -51,10 +51,10 @@ public class DuelSceneManager : MonoBehaviour
         {
             dog.SetActive(true);
             turtle.SetActive(true);
-            dog.GetComponent<DuelDog>().hit = turtle;
-            turtle.GetComponent<DuelTurtle>().hit = dog;
-            ribb.GetComponent<DuelRibb>().dead = true;
-            cat.GetComponent<DuelCat>().dead = true;
+            dog.GetComponent<PlayerControlDuel>().hit = turtle;
+            turtle.GetComponent<PlayerControlDuel>().hit = dog;
+            ribb.GetComponent<PlayerControlDuel>().dead = true;
+            cat.GetComponent<PlayerControlDuel>().dead = true;
             dog.transform.position = player1.transform.position;
             dog.transform.rotation = player1.transform.rotation;
             turtle.transform.position = player2.transform.position;
@@ -64,10 +64,10 @@ public class DuelSceneManager : MonoBehaviour
         {
             ribb.SetActive(true);
             cat.SetActive(true);
-            cat.GetComponent<DuelCat>().hit = ribb;
-            ribb.GetComponent<DuelRibb>().hit = cat;
-            dog.GetComponent<DuelDog>().dead = true;
-            turtle.GetComponent<DuelTurtle>().dead = true;
+            cat.GetComponent<PlayerControlDuel>().hit = ribb;
+            ribb.GetComponent<PlayerControlDuel>().hit = cat;
+            dog.GetComponent<PlayerControlDuel>().dead = true;
+            turtle.GetComponent<PlayerControlDuel>().dead = true;
             ribb.transform.position = player1.transform.position;
             ribb.transform.rotation = player1.transform.rotation;
             cat.transform.position = player2.transform.position;
@@ -77,10 +77,10 @@ public class DuelSceneManager : MonoBehaviour
         {
             cat.SetActive(true);
             turtle.SetActive(true);
-            turtle.GetComponent<DuelTurtle>().hit = cat;
-            cat.GetComponent<DuelCat>().hit = turtle;
-            ribb.GetComponent<DuelRibb>().dead = true;
-            dog.GetComponent<DuelDog>().dead = true;
+            turtle.GetComponent<PlayerControlDuel>().hit = cat;
+            cat.GetComponent<PlayerControlDuel>().hit = turtle;
+            ribb.GetComponent<PlayerControlDuel>().dead = true;
+            dog.GetComponent<PlayerControlDuel>().dead = true;
             cat.transform.position = player1.transform.position;
             cat.transform.rotation = player1.transform.rotation;
             turtle.transform.position = player2.transform.position;
@@ -90,10 +90,10 @@ public class DuelSceneManager : MonoBehaviour
         {
             ribb.SetActive(true);
             turtle.SetActive(true);
-            ribb.GetComponent<DuelRibb>().hit = turtle;
-            turtle.GetComponent<DuelTurtle>().hit = ribb;
-            dog.GetComponent<DuelDog>().dead = true;
-            cat.GetComponent<DuelCat>().dead = true;
+            ribb.GetComponent<PlayerControlDuel>().hit = turtle;
+            turtle.GetComponent<PlayerControlDuel>().hit = ribb;
+            dog.GetComponent<PlayerControlDuel>().dead = true;
+            cat.GetComponent<PlayerControlDuel>().dead = true;
             ribb.transform.position = player1.transform.position;
             ribb.transform.rotation = player1.transform.rotation;
             turtle.transform.position = player2.transform.position;
@@ -114,25 +114,25 @@ public class DuelSceneManager : MonoBehaviour
         if (pause == false && timer > 0 && duelwinner.activeSelf == false) timer -= Time.deltaTime;
         countdown.text = timer.ToString("F2");
         if (timer <= 0) timesup.SetActive(true);
-        if (dog.GetComponent<DuelDog>().dead == false && cat.GetComponent<DuelCat>().dead == true && ribb.GetComponent<DuelRibb>().dead == true && turtle.GetComponent<DuelTurtle>().dead == true)
+        if (dog.GetComponent<PlayerControlDuel>().dead == false && cat.GetComponent<PlayerControlDuel>().dead == true && ribb.GetComponent<PlayerControlDuel>().dead == true && turtle.GetComponent<PlayerControlDuel>().dead == true)
         {
             duelwinner.SetActive(true);
             winnertext.text = "狗獲勝！";
             Destroy(GM);
         }
-        else if (dog.GetComponent<DuelDog>().dead == true && cat.GetComponent<DuelCat>().dead == false && ribb.GetComponent<DuelRibb>().dead == true && turtle.GetComponent<DuelTurtle>().dead == true)
+        else if (dog.GetComponent<PlayerControlDuel>().dead == true && cat.GetComponent<PlayerControlDuel>().dead == false && ribb.GetComponent<PlayerControlDuel>().dead == true && turtle.GetComponent<PlayerControlDuel>().dead == true)
         {
             duelwinner.SetActive(true);
             winnertext.text = "貓獲勝！";
             Destroy(GM);
         }
-        else if (dog.GetComponent<DuelDog>().dead == true && cat.GetComponent<DuelCat>().dead == true && ribb.GetComponent<DuelRibb>().dead == false && turtle.GetComponent<DuelTurtle>().dead == true)
+        else if (dog.GetComponent<PlayerControlDuel>().dead == true && cat.GetComponent<PlayerControlDuel>().dead == true && ribb.GetComponent<PlayerControlDuel>().dead == false && turtle.GetComponent<PlayerControlDuel>().dead == true)
         {
             duelwinner.SetActive(true);
             winnertext.text = "兔子獲勝！";
             Destroy(GM);
         }
-        else if (dog.GetComponent<DuelDog>().dead == true && cat.GetComponent<DuelCat>().dead == true && ribb.GetComponent<DuelRibb>().dead == true && turtle.GetComponent<DuelTurtle>().dead == false)
+        else if (dog.GetComponent<PlayerControlDuel>().dead == true && cat.GetComponent<PlayerControlDuel>().dead == true && ribb.GetComponent<PlayerControlDuel>().dead == true && turtle.GetComponent<PlayerControlDuel>().dead == false)
         {
             duelwinner.SetActive(true);
             winnertext.text = "烏龜獲勝！";

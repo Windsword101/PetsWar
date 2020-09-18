@@ -1,40 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 namespace KID
 {
     public class RandomScene : MonoBehaviour
     {
-        private static List<string> _allScene = new List<string>();
+        /// <summary>
+        /// 所有場景名稱
+        /// </summary>
+        private static List<string> allSceneName { get; set; }
 
         /// <summary>
-        /// 所有場景：除了編號為 0 的第一個場景 - 排除選單
-        /// ※ 必須檢查 Build Settings 內是否還有多餘的場景
+        /// 建議在選單執行一次此方法：設定所有場景
         /// </summary>
-        public static List<string> allScene
+        /// <param name="scenes">請輸入要隨機載入的場景名稱，必須與 Build Settings 內的相同，大小寫也要相同</param>
+        public static void SetAllScene(params string[] scenes)
         {
-            get
-            {
-                for (int i = 0; i < SceneManager.sceneCountInBuildSettings - 1; i++)
-                    _allScene.Add(SceneManager.GetSceneAt(i + 1).name);
+            allSceneName = new List<string>();                                              // 實例化清單物件
 
-                return _allScene;
-            }
+            for (int i = 0; i < scenes.Length; i++) allSceneName.Add(scenes[i]);            // 添加輸入的場景名稱到清單內
         }
 
         /// <summary>
-        /// 載入隨機場景：不重複
+        /// 取得隨機場景名稱
         /// </summary>
         /// <returns>隨機場景名稱</returns>
-        public static string LoadRandomScene()
+        public static string GetRandomScene()
         {
-            int r = Random.Range(0, allScene.Count);    // 取得隨機整數 0 至所有場景數量
+            if (allSceneName.Count == 0) return "";
 
-            string scene = allScene[r];                 // 取得隨機場景名稱
-            allScene.RemoveAt(r);                       // 刪除取得的場景名稱
+            int r = Random.Range(0, allSceneName.Count);            // 取得隨機場景編號
+            string scene = allSceneName[r];                         // 取得隨機場景名稱
+            allSceneName.RemoveAt(r);                               // 刪除隨機場景
 
-            return scene;                               // 傳回隨機場景名稱
+            return scene;                                           // 傳回隨機場景名稱
         }
     }
 }

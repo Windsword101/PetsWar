@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Game02_running.unity
+- path: Assets/Scenes/Game04_Tagyoure it.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

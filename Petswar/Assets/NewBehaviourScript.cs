@@ -9,8 +9,7 @@ public class NewBehaviourScript : MonoBehaviour
     public Button a;
     IEnumerator Start()
     {
-        string b = RandomScene.LoadRandomScene();
-        print(b);
+        //string b = RandomScene.LoadRandomScene();
         if (GameObject.FindGameObjectsWithTag("Button").Length > 1)
         {
             Destroy(gameObject);
@@ -23,7 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         a.onClick.AddListener(() =>
         {
-            string a = RandomScene.LoadRandomScene();
+           // string a = RandomScene.LoadRandomScene();
             print(a);
         }
         );

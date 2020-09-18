@@ -7,7 +7,7 @@ namespace KID
     public class PlayerData : ScriptableObject
     {
         [Header("前")]
-        public KeyCode forwad;
+        public KeyCode forward;
         [Header("後")]
         public KeyCode backward;
         [Header("左")]
