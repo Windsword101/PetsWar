@@ -438,6 +438,8 @@ MonoBehaviour:
   runL: {fileID: 0}
   runR: {fileID: 0}
   game04_scoretext: {fileID: 0}
+  game04_caketimer: 0
+  game04_Score: 0
 --- !u!1 &851697457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4787408268082038060, guid: d4ebcc1b492684c40a5e01431a575255,
@@ -475,6 +477,8 @@ MonoBehaviour:
   runL: {fileID: 0}
   runR: {fileID: 0}
   game04_scoretext: {fileID: 0}
+  game04_caketimer: 0
+  game04_Score: 0
 --- !u!1001 &852789570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,6 +696,8 @@ MonoBehaviour:
   runL: {fileID: 0}
   runR: {fileID: 0}
   game04_scoretext: {fileID: 0}
+  game04_caketimer: 0
+  game04_Score: 0
 --- !u!1001 &1695701137
 PrefabInstance:
   m_ObjectHideFlags: 0

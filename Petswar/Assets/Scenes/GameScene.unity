@@ -2925,38 +2925,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259612080}
   m_CullTransparentMesh: 0
---- !u!1 &263931439 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6979165482642571493, guid: 0901a99f71b12e0449d0023edd9a2508,
+--- !u!114 &263931445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1666858753655418809, guid: 0901a99f71b12e0449d0023edd9a2508,
     type: 3}
   m_PrefabInstance: {fileID: 1334241068}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &263931445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263931439}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerdata: {fileID: 11400000, guid: d0447d6dbe28d6948b87817529675c1d, type: 2}
-  hit: {fileID: 0}
-  Protectionsphere: {fileID: 2105408885}
-  speed: 4
-  hp: 100
-  prop: {fileID: 4169981692600970396, guid: 327f8637823228e499e9c54e0cd50e08, type: 3}
-  damage: 10
-  attCD: {fileID: 1331896563}
-  powerCD: {fileID: 1506240451}
-  hugeCD: {fileID: 465444166}
-  protectionCD: {fileID: 2075963097}
-  scripthp: 0
-  movespeed: 10
-  moveArea: 999
 --- !u!1 &278277223
 GameObject:
   m_ObjectHideFlags: 0
@@ -6399,27 +6379,6 @@ PrefabInstance:
       propertyPath: protectionCD
       value: 
       objectReference: {fileID: 667399776}
-    - target: {fileID: 8942381559742175952, guid: fb013a935cec5de4abe885dde7ac0a2f,
-        type: 3}
-      propertyPath: movespeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942381559742175952, guid: fb013a935cec5de4abe885dde7ac0a2f,
-        type: 3}
-      propertyPath: moveArea
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942381559742175952, guid: fb013a935cec5de4abe885dde7ac0a2f,
-        type: 3}
-      propertyPath: playerdata
-      value: 
-      objectReference: {fileID: 11400000, guid: 926726ad3f0ce2041a09ba42cd3f415a,
-        type: 2}
-    - target: {fileID: 8942381559742175952, guid: fb013a935cec5de4abe885dde7ac0a2f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb013a935cec5de4abe885dde7ac0a2f, type: 3}
 --- !u!1001 &559909174
@@ -9581,34 +9540,26 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
+    - target: {fileID: 3433208328722644955, guid: fccc72d218dc5d244b64c9b6a01c4316,
+        type: 3}
       propertyPath: attCD
       value: 
       objectReference: {fileID: 358488461}
-    - target: {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
+    - target: {fileID: 3433208328722644955, guid: fccc72d218dc5d244b64c9b6a01c4316,
+        type: 3}
       propertyPath: powerCD
       value: 
       objectReference: {fileID: 1352652901}
-    - target: {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
+    - target: {fileID: 3433208328722644955, guid: fccc72d218dc5d244b64c9b6a01c4316,
+        type: 3}
       propertyPath: hugeCD
       value: 
       objectReference: {fileID: 1768320653}
-    - target: {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
+    - target: {fileID: 3433208328722644955, guid: fccc72d218dc5d244b64c9b6a01c4316,
+        type: 3}
       propertyPath: protectionCD
       value: 
       objectReference: {fileID: 1584748881}
-    - target: {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
-      propertyPath: movespeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
-      propertyPath: moveArea
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6514373080592830957, guid: fccc72d218dc5d244b64c9b6a01c4316,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9617,12 +9568,12 @@ PrefabInstance:
     - target: {fileID: 6514373080592830957, guid: fccc72d218dc5d244b64c9b6a01c4316,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.11
+      value: 1.963
       objectReference: {fileID: 0}
     - target: {fileID: 6514373080592830957, guid: fccc72d218dc5d244b64c9b6a01c4316,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.13
+      value: 4.81
       objectReference: {fileID: 0}
     - target: {fileID: 6514373080592830957, guid: fccc72d218dc5d244b64c9b6a01c4316,
         type: 3}
@@ -9674,8 +9625,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
 --- !u!1 &921172702
 GameObject:
@@ -11539,38 +11489,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103280175}
   m_CullTransparentMesh: 0
---- !u!1 &1115277168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4787408268082038060, guid: d4ebcc1b492684c40a5e01431a575255,
+--- !u!114 &1115277174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4689114955378675381, guid: d4ebcc1b492684c40a5e01431a575255,
     type: 3}
   m_PrefabInstance: {fileID: 1216113946}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1115277174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115277168}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerdata: {fileID: 11400000, guid: 839c8346249120d47903e25d069e54e3, type: 2}
-  hit: {fileID: 0}
-  Protectionsphere: {fileID: 1175118688}
-  speed: 4
-  hp: 100
-  prop: {fileID: 8176338796627638721, guid: 40ae6ef026151484586ccf09f178dc7a, type: 3}
-  damage: 10
-  attCD: {fileID: 945450981}
-  powerCD: {fileID: 259612082}
-  hugeCD: {fileID: 1305124182}
-  protectionCD: {fileID: 1255256214}
-  scripthp: 0
-  movespeed: 10
-  moveArea: 999
 --- !u!1 &1128470584
 GameObject:
   m_ObjectHideFlags: 0
@@ -11991,12 +11921,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1170936402}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1175118688 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1448684021, guid: d4ebcc1b492684c40a5e01431a575255,
-    type: 3}
-  m_PrefabInstance: {fileID: 1216113946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1182587181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12368,34 +12292,26 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 1155435325, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
+    - target: {fileID: 4689114955378675381, guid: d4ebcc1b492684c40a5e01431a575255,
+        type: 3}
       propertyPath: attCD
       value: 
       objectReference: {fileID: 945450981}
-    - target: {fileID: 1155435325, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
+    - target: {fileID: 4689114955378675381, guid: d4ebcc1b492684c40a5e01431a575255,
+        type: 3}
       propertyPath: powerCD
       value: 
       objectReference: {fileID: 259612082}
-    - target: {fileID: 1155435325, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
+    - target: {fileID: 4689114955378675381, guid: d4ebcc1b492684c40a5e01431a575255,
+        type: 3}
       propertyPath: hugeCD
       value: 
       objectReference: {fileID: 1305124182}
-    - target: {fileID: 1155435325, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
+    - target: {fileID: 4689114955378675381, guid: d4ebcc1b492684c40a5e01431a575255,
+        type: 3}
       propertyPath: protectionCD
       value: 
       objectReference: {fileID: 1255256214}
-    - target: {fileID: 1155435325, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
-      propertyPath: movespeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155435325, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
-      propertyPath: moveArea
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155435325, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4787408268082038060, guid: d4ebcc1b492684c40a5e01431a575255,
         type: 3}
       propertyPath: m_Name
@@ -12414,12 +12330,12 @@ PrefabInstance:
     - target: {fileID: 8370805964308920127, guid: d4ebcc1b492684c40a5e01431a575255,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.58
+      value: 1.751
       objectReference: {fileID: 0}
     - target: {fileID: 8370805964308920127, guid: d4ebcc1b492684c40a5e01431a575255,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.26
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 8370805964308920127, guid: d4ebcc1b492684c40a5e01431a575255,
         type: 3}
@@ -12461,8 +12377,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1155435325, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
 --- !u!1001 &1218138099
 PrefabInstance:
@@ -14175,47 +14090,26 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
+    - target: {fileID: 1666858753655418809, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
       propertyPath: attCD
       value: 
       objectReference: {fileID: 1331896563}
-    - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
+    - target: {fileID: 1666858753655418809, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
       propertyPath: powerCD
       value: 
       objectReference: {fileID: 1506240451}
-    - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
+    - target: {fileID: 1666858753655418809, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
       propertyPath: hugeCD
       value: 
       objectReference: {fileID: 465444166}
-    - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
+    - target: {fileID: 1666858753655418809, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
       propertyPath: protectionCD
       value: 
       objectReference: {fileID: 2075963097}
-    - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
-        type: 3}
-      propertyPath: movespeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
-        type: 3}
-      propertyPath: moveArea
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
-        type: 3}
-      propertyPath: playerdata
-      value: 
-      objectReference: {fileID: 11400000, guid: 839c8346249120d47903e25d069e54e3,
-        type: 2}
     - target: {fileID: 6233443539880178422, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14224,7 +14118,7 @@ PrefabInstance:
     - target: {fileID: 6233443539880178422, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.826
+      value: 0.938
       objectReference: {fileID: 0}
     - target: {fileID: 6233443539880178422, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
@@ -14281,8 +14175,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0901a99f71b12e0449d0023edd9a2508, type: 3}
 --- !u!1001 &1334428388
 PrefabInstance:
@@ -15605,12 +15498,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568555428}
   m_CullTransparentMesh: 0
---- !u!1 &1583434184 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1329139173, guid: fccc72d218dc5d244b64c9b6a01c4316,
-    type: 3}
-  m_PrefabInstance: {fileID: 917772727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1584255338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16995,38 +16882,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1714179405}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1726276705 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7799366033643185150, guid: fccc72d218dc5d244b64c9b6a01c4316,
+--- !u!114 &1726276711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3433208328722644955, guid: fccc72d218dc5d244b64c9b6a01c4316,
     type: 3}
   m_PrefabInstance: {fileID: 917772727}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1726276711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726276705}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerdata: {fileID: 11400000, guid: 8a94c0bf47b2f0d43810a2af16d730ed, type: 2}
-  hit: {fileID: 0}
-  Protectionsphere: {fileID: 1583434184}
-  speed: 4
-  hp: 100
-  prop: {fileID: 3072044422094923288, guid: e730723b01324104a8f472bdb2dc6d22, type: 3}
-  damage: 10
-  attCD: {fileID: 358488461}
-  powerCD: {fileID: 1352652901}
-  hugeCD: {fileID: 1768320653}
-  protectionCD: {fileID: 1584748881}
-  scripthp: 0
-  movespeed: 10
-  moveArea: 999
 --- !u!1001 &1760703541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19531,12 +19398,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094856078}
   m_CullTransparentMesh: 0
---- !u!1 &2105408885 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1032748203, guid: 0901a99f71b12e0449d0023edd9a2508,
-    type: 3}
-  m_PrefabInstance: {fileID: 1334241068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2117956101
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,8 +6,6 @@ using KID;
 
 public class PlayerControl : MonoBehaviour
 {
-    float h;
-    float v;
     #region 經典模式
     public PlayerData playerdata;
     public GameObject hit;
@@ -46,7 +44,7 @@ public class PlayerControl : MonoBehaviour
     #region 跑步模式
     [Header("加速度")]
     public float _runspeed;
-    public Sprite stand,runL, runR;
+    public Sprite stand, runL, runR;
     private Rigidbody2D rig;
     private bool run = false;
     private float runspeed;
@@ -54,12 +52,17 @@ public class PlayerControl : MonoBehaviour
     #region 搶蛋糕模式
     [Header("持有蛋糕時間計算")]
     public Text game04_scoretext;
-    private float game04_score;
+    //蛋糕持有秒數
+    public float game04_caketimer;
+    //分數
+    public int game04_Score;
+    //是否持有蛋糕
+    private bool cakeOn;
     #endregion
 
     private void Awake()
     {
-        if(Application.loadedLevelName == "Game02_running")
+        if (Application.loadedLevelName == "Game02_running")
         {
             rig = gameObject.GetComponent<Rigidbody2D>();
         }
@@ -119,11 +122,12 @@ public class PlayerControl : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Application.loadedLevelName == "Game03_Balance" || Application.loadedLevelName == "Game04_Tagyoure it") Move();
+        if (Application.loadedLevelName == "Game03_Balance" || Application.loadedLevelName == "Game04_Tagyoure it" || Application.loadedLevelName == "Game05_volleyball") Move();
 
     }
     private void Update()
     {
+        if (Application.loadedLevelName == "Game05_volleyball") ThrowVolleyBall();
         if (Application.loadedLevelName == "Game04_Tagyoure it") Score();
         if (Application.loadedLevelName == "Game02_running") Running();
 
@@ -255,10 +259,41 @@ public class PlayerControl : MonoBehaviour
         protection = false;
         Protectionsphere.SetActive(false);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
 
-
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        //排球模式把球抓起來
+        if (collision.gameObject.tag == "Ball" && gameObject.transform.Find("ball(Clone)") == null)
+        {
+            if (Input.GetKeyDown(playerdata.a))
+            {
+                collision.gameObject.transform.SetParent(gameObject.transform);
+                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>(), true);
+                if (collision.gameObject.GetComponent<Rigidbody>() == true) collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                collision.gameObject.transform.localPosition = new Vector3(0, 2, 2);
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
+        //排球模式把球抓起來
+        if (other.gameObject.tag == "Ball" && gameObject.transform.Find("ball(Clone)") == null)
+        {
+            if (Input.GetKeyDown(playerdata.a))
+            {
+                other.gameObject.transform.SetParent(gameObject.transform);
+                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
+                if (other.gameObject.GetComponent<Rigidbody>() == true)
+                {
+
+                    other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                }
+                other.gameObject.transform.localPosition = new Vector3(0, 2, 2);
+            }
+        }
         //經典模式被投擲物投中
         if (other.gameObject.tag == "Prop" && other.gameObject.name != prop.name + "(Clone)")
         {
@@ -269,16 +304,37 @@ public class PlayerControl : MonoBehaviour
             Destroy(other.gameObject);
             Dead();
         }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        //排球模式把球抓起來
+        if (other.gameObject.tag == "Ball" && gameObject.transform.Find("ball(Clone)") == null)
+        {
+            if (Input.GetKeyDown(playerdata.a))
+            {
+                other.gameObject.transform.SetParent(gameObject.transform);
+                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
+                if (other.gameObject.GetComponent<Rigidbody>() == true)
+                {
+                    other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                }
+                other.gameObject.transform.localPosition = new Vector3(0, 2, 2);
+            }
+        }
         //鬼抓人場景碰到帽子
         if (other.gameObject.tag == "Cake")
         {
-            other.gameObject.transform.SetParent(gameObject.transform);
-            other.gameObject.transform.localPosition = new Vector3(0, 1.125f, 2);
+            if (Input.GetKeyDown(playerdata.a))
+            {
+                other.gameObject.transform.SetParent(gameObject.transform);
+                other.gameObject.transform.localPosition = new Vector3(0, 5, 0);
+            }
         }
-      
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //跑步遊戲抵達終點
         if (collision.gameObject.name == "FinishLine")
         {
             print(gameObject.name + "win");
@@ -299,27 +355,37 @@ public class PlayerControl : MonoBehaviour
     }
     private void Move()
     {
+        Vector3 mVelocity = Vector3.zero;
+        /*if (Input.GetKey(playerdata.forward) && Input.GetKey(playerdata.right)) angle = new Vector3(0, 45, 0);
+        if (Input.GetKey(playerdata.forward) && Input.GetKey(playerdata.left)) angle = new Vector3(0, 315, 0);
+        if (Input.GetKey(playerdata.backward) && Input.GetKey(playerdata.right)) angle = new Vector3(0, 135, 0);
+        if (Input.GetKey(playerdata.backward) && Input.GetKey(playerdata.left)) angle = new Vector3(0, 225, 0);*/
 
         if (Input.GetKey(playerdata.left))
         {
+            mVelocity.x = -1.0f;
             angle = new Vector3(0, 270, 0);
-            rb.AddForce(transform.forward * movespeed);
+            //rb.AddForce(transform.forward * movespeed);
         }
         if (Input.GetKey(playerdata.right))
         {
+            mVelocity.x = 1.0f;
             angle = new Vector3(0, 90, 0);
-            rb.AddForce(transform.forward * movespeed);
+            //rb.AddForce(transform.forward * movespeed);
         }
         if (Input.GetKey(playerdata.forward))
         {
+            mVelocity.z = 1.0f;
             angle = new Vector3(0, 0, 0);
-            rb.AddForce(transform.forward * movespeed);
+            //rb.AddForce(transform.forward * movespeed);
         }
         if (Input.GetKey(playerdata.backward))
         {
+            mVelocity.z = -1.0f;
             angle = new Vector3(0, 180, 0);
-            rb.AddForce(transform.forward * movespeed);
+            //rb.AddForce(transform.forward * movespeed);
         }
+        rb.AddForce(mVelocity.normalized * movespeed);
         transform.eulerAngles = angle;
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, originalposition.x - moveArea, originalposition.x + moveArea), transform.position.y, Mathf.Clamp(transform.position.z, originalposition.z - moveArea, originalposition.z + moveArea));
     }
@@ -350,13 +416,39 @@ public class PlayerControl : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = stand;
         }
     }
-    
+
     private void Score()
     {
-        game04_scoretext.text = game04_score.ToString("F2");
-        if(gameObject.transform.Find("Cake") != null)
+        game04_scoretext.text = game04_caketimer.ToString("F2");
+        if (gameObject.transform.Find("Cake") != null)
         {
-            game04_score += Time.deltaTime;
+            cakeOn = true;
+            game04_caketimer += Time.deltaTime;
+        }
+        if (cakeOn == true)
+        {
+            if (Input.GetKeyDown(playerdata.b))
+            {
+                gameObject.transform.Find("Cake").transform.position = new Vector3(transform.position.x, 1.2f, transform.position.z);
+                gameObject.transform.Find("Cake").SetParent(null);
+                cakeOn = false;
+            }
+        }
+    }
+    private void ThrowVolleyBall()
+    {
+        if (gameObject.transform.Find("ball(Clone)") != null)
+        {
+            if (Input.GetKeyDown(playerdata.b))
+            {
+                Transform dir = gameObject.transform.Find("ThrowDirection").GetComponent<Transform>();
+                gameObject.transform.Find("ball(Clone)").transform.LookAt(dir);
+                gameObject.transform.Find("ball(Clone)").GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                gameObject.transform.Find("ball(Clone)").GetComponent<Rigidbody>().AddForce(gameObject.transform.Find("ball(Clone)").transform.forward * 500);
+                gameObject.transform.Find("ball(Clone)").GetComponent<Rigidbody>().AddForce(0, 500, 0);
+                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), gameObject.transform.Find("ball(Clone)").GetComponent<Collider>(), false);
+                gameObject.transform.Find("ball(Clone)").transform.SetParent(null);
+            }
         }
     }
 }

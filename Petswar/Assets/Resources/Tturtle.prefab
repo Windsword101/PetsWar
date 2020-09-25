@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 2241955902850068791}
   - component: {fileID: 2733863222048789271}
   - component: {fileID: 110495733}
-  - component: {fileID: 670478793}
+  - component: {fileID: 3433208328722644955}
   m_Layer: 8
   m_Name: Tturtle
   m_TagString: Player
@@ -1150,7 +1150,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &670478793
+--- !u!114 &3433208328722644955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1159,9 +1159,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7799366033643185150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7684f755e6e197d44a3ec7afb8e35cc9, type: 3}
+  m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerdata: {fileID: 11400000, guid: 8a94c0bf47b2f0d43810a2af16d730ed, type: 2}
   hit: {fileID: 0}
   Protectionsphere: {fileID: 1329139173}
   speed: 4
@@ -1173,8 +1174,15 @@ MonoBehaviour:
   hugeCD: {fileID: 0}
   protectionCD: {fileID: 0}
   scripthp: 0
-  movespeed: 0
-  moveArea: 0
+  movespeed: 10
+  moveArea: 999
+  _runspeed: 0
+  stand: {fileID: 0}
+  runL: {fileID: 0}
+  runR: {fileID: 0}
+  game04_scoretext: {fileID: 0}
+  game04_caketimer: 0
+  game04_Score: 0
 --- !u!1 &7857670028934405799
 GameObject:
   m_ObjectHideFlags: 0

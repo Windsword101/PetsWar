@@ -12,6 +12,7 @@ TagManager:
   - Hat
   - Button
   - Cake
+  - Ball
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - Player
   - Protection
   - Prop
-  - 
-  - 
+  - Ball
+  - BallTrigger
   - 
   - 
   - 

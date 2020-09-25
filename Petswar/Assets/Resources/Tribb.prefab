@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 3553805620879899453}
   - component: {fileID: 5726447633247146212}
   - component: {fileID: 940408618}
-  - component: {fileID: 1155435325}
+  - component: {fileID: 4689114955378675381}
   m_Layer: 8
   m_Name: Tribb
   m_TagString: Player
@@ -838,7 +838,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1155435325
+--- !u!114 &4689114955378675381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -847,9 +847,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4787408268082038060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33641f22daaa49e4db0a5f686a0eabc9, type: 3}
+  m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerdata: {fileID: 11400000, guid: 839c8346249120d47903e25d069e54e3, type: 2}
   hit: {fileID: 0}
   Protectionsphere: {fileID: 1448684021}
   speed: 4
@@ -861,6 +862,15 @@ MonoBehaviour:
   hugeCD: {fileID: 0}
   protectionCD: {fileID: 0}
   scripthp: 0
+  movespeed: 10
+  moveArea: 999
+  _runspeed: 0
+  stand: {fileID: 0}
+  runL: {fileID: 0}
+  runR: {fileID: 0}
+  game04_scoretext: {fileID: 0}
+  game04_caketimer: 0
+  game04_Score: 0
 --- !u!1 &4846063568067410037
 GameObject:
   m_ObjectHideFlags: 0
