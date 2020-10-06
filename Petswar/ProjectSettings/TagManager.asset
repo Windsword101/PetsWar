@@ -27,8 +27,8 @@ TagManager:
   - Prop
   - Ball
   - BallTrigger
-  - 
-  - 
+  - SpawnObstacle
+  - Obstacle
   - 
   - 
   - 

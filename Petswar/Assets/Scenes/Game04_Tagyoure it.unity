@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerScore: 0
   playerdata: {fileID: 11400000, guid: d0447d6dbe28d6948b87817529675c1d, type: 2}
   hit: {fileID: 0}
   Protectionsphere: {fileID: 0}
@@ -1534,6 +1535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerScore: 0
   playerdata: {fileID: 11400000, guid: 839c8346249120d47903e25d069e54e3, type: 2}
   hit: {fileID: 0}
   Protectionsphere: {fileID: 0}
@@ -3646,6 +3648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerScore: 0
   playerdata: {fileID: 11400000, guid: 8a94c0bf47b2f0d43810a2af16d730ed, type: 2}
   hit: {fileID: 0}
   Protectionsphere: {fileID: 0}
@@ -6267,7 +6270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 109.48, y: 9.34}
+  m_AnchoredPosition: {x: 0, y: 56}
   m_SizeDelta: {x: 1112.123, y: 604.0815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107783274

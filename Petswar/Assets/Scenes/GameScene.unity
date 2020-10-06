@@ -8904,7 +8904,8 @@ MonoBehaviour:
   cat: {fileID: 263931445}
   ribb: {fileID: 1115277174}
   turtle: {fileID: 1726276711}
-  Winner: {fileID: 19470110}
+  Scoreboard: {fileID: 0}
+  game_result: []
   winnertext: {fileID: 766735506}
   countdown: {fileID: 460068566}
 --- !u!4 &783039630
@@ -9568,7 +9569,7 @@ PrefabInstance:
     - target: {fileID: 6514373080592830957, guid: fccc72d218dc5d244b64c9b6a01c4316,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.963
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 6514373080592830957, guid: fccc72d218dc5d244b64c9b6a01c4316,
         type: 3}
@@ -12330,12 +12331,12 @@ PrefabInstance:
     - target: {fileID: 8370805964308920127, guid: d4ebcc1b492684c40a5e01431a575255,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.751
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 8370805964308920127, guid: d4ebcc1b492684c40a5e01431a575255,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9
+      value: -7.55
       objectReference: {fileID: 0}
     - target: {fileID: 8370805964308920127, guid: d4ebcc1b492684c40a5e01431a575255,
         type: 3}

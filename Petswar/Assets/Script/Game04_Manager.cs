@@ -57,20 +57,6 @@ public class Game04_Manager : MonoBehaviour
             {
                 players[i].GetComponent<PlayerControl>().game04_Score = scores[i];
                 game04_result[i].text = players[i].name + ":" + players[i].GetComponent<PlayerControl>().game04_Score;
-                foreach (GameObject p in players)
-                {
-                    print(p);
-                }
-                /*foreach (GameObject p in players)
-                {
-
-                    caketimer = new List<float> { p.GetComponent<PlayerControl>().game04_caketimer };
-                    foreach (float t in caketimer)
-                    {
-                        int max = caketimer.IndexOf(caketimer.Max());
-                        int min = caketimer.IndexOf(caketimer.Min());
-                    }
-                }*/
             }
         }
         _timer -= Time.deltaTime;

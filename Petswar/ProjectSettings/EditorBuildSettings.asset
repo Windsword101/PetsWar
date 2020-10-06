@@ -8,28 +8,37 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/BackgroundMusic.unity
     guid: a15e706c2e4112f46a30bb0b7aaff5c5
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 6e7aac327b69dd142b0d520942d8fc74
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StoryScene.unity
     guid: 8b271074b096ae24795abe8cad5acfe0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2253f8d654dc1e14cae612fd379952f0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/DuelScene.unity
     guid: 3cbad6099fdfa7248b176e7e427cdeb5
-  - enabled: 0
-    path: Assets/Scenes/Winnerscene.unity
-    guid: 40a24806b1adb43429ee2e99a6234417
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Game02_running.unity
     guid: b66104e19d7c0354c948eda71e5fd3a2
+  - enabled: 0
+    path: Assets/Scenes/Game03_Balance.unity
+    guid: 18f9a58babbacf942929e818ff5f07c3
+  - enabled: 1
+    path: Assets/Scenes/Game04_Tagyoure it.unity
+    guid: dc823d84baf491646a973e289e7e2fdb
   - enabled: 1
     path: Assets/Scenes/Game05_volleyball.unity
     guid: bc59afbc6f11ec044b3a10e72ddd40dc
+  - enabled: 0
+    path: Assets/Scenes/Game06_Dancing.unity
+    guid: 89c5e3d432ec9fd449816eabb5b74b60
+  - enabled: 1
+    path: Assets/Scenes/Winnerscene.unity
+    guid: 40a24806b1adb43429ee2e99a6234417
   m_configObjects: {}

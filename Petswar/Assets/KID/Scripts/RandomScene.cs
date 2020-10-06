@@ -9,7 +9,7 @@ namespace KID
         /// 所有場景名稱
         /// </summary>
         private static List<string> allSceneName { get; set; }
-
+        
         /// <summary>
         /// 建議在選單執行一次此方法：設定所有場景
         /// </summary>

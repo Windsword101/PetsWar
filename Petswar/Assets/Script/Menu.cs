@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using KID;
 
 public class Menu : MonoBehaviour
 {
+    private void Awake()
+    {
+        RandomScene.SetAllScene("GameScene","Game02_running","Game04_Tagyoure it","Game05_volleyball");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +24,8 @@ public class Menu : MonoBehaviour
     }
     public void GameStart()
     {
-        SceneManager.LoadScene("GameScene");
+        string randomscene = RandomScene.GetRandomScene();
+        SceneManager.LoadScene(randomscene);
 
     }
     public void StoryMode()
