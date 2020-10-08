@@ -63,6 +63,9 @@ public class PlayerControl : MonoBehaviour
     //是否持有蛋糕
     private bool cakeOn;
     #endregion
+    #region 躲避球模式
+    private int game03_life = 3;
+    #endregion
 
     private void Awake()
     {
@@ -110,9 +113,9 @@ public class PlayerControl : MonoBehaviour
     {
         originalposition = transform.position;
         rb = gameObject.GetComponent<Rigidbody>();
+        ani = GetComponent<Animator>();
         if (Application.loadedLevelName == "GameScene")
         {
-
             deadsound = GameObject.Find("Dead").GetComponent<AudioSource>();
             throwsound = GameObject.Find("Throw").GetComponent<AudioSource>();
             hitsound = GameObject.Find("HitSound").GetComponent<AudioSource>();
@@ -122,7 +125,6 @@ public class PlayerControl : MonoBehaviour
             HugeTimer = _HugeTimer;
             protectionTimer = _protectionTimer;
         }
-        ani = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
@@ -165,7 +167,7 @@ public class PlayerControl : MonoBehaviour
         }
 
     }
-    // 按Z瞄準烏龜發射
+    // 按鍵A瞄準發射
     private void AimTargetA()
     {
         if (Input.GetKey(playerdata.a))
@@ -182,7 +184,7 @@ public class PlayerControl : MonoBehaviour
             ani.SetTrigger("throw");
         }
     }
-    // 按X瞄準貓發射
+    // 按鍵B瞄準發射
     private void AimTargetB()
     {
         if (Input.GetKey(playerdata.b))
@@ -199,7 +201,7 @@ public class PlayerControl : MonoBehaviour
             ani.SetTrigger("throw");
         }
     }
-    // 按C瞄準兔子發射
+    // 按鍵C瞄準發射
     private void AimTargetC()
     {
         if (Input.GetKey(playerdata.c))
@@ -298,6 +300,13 @@ public class PlayerControl : MonoBehaviour
                 other.gameObject.transform.localPosition = new Vector3(0, 2, 2);
             }
         }
+        // 躲避模式被障礙物撞到
+        if (other.gameObject.tag == "Obstacle")
+        {
+            game03_life -= 1;
+            ani.SetTrigger("GetHit");
+            Dead();
+        }
         //經典模式被投擲物投中
         if (other.gameObject.tag == "Prop" && other.gameObject.name != prop.name + "(Clone)")
         {
@@ -350,7 +359,7 @@ public class PlayerControl : MonoBehaviour
 
     public void Dead()
     {
-        if (scripthp <= 0)
+        if (scripthp <= 0 || game03_life <=0)
         {
             deadsound.Play();
             ani.SetTrigger("Death");

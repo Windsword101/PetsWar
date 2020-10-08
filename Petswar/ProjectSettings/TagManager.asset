@@ -13,6 +13,7 @@ TagManager:
   - Button
   - Cake
   - Ball
+  - Obstacle
   layers:
   - Default
   - TransparentFX
