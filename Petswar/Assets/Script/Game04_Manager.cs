@@ -15,26 +15,28 @@ public class Game04_Manager : MonoBehaviour
             else return 0;
         }
     }
+    [Header("場景內四個玩家")]
+    public List<GameObject> player = new List<GameObject>();
     public GameObject Scoreboard;
     public Text[] game04_result;
-    public int[] scores;
-    public GameObject player1, player2, player3, player4;
     public Text text;
     public int timer = 180;
     private float _timer = 1;
+    //用於排列名次
     private List<GameObject> players = new List<GameObject>();
-    // Start is called before the first frame update
+    private bool isEnd;
+
     void Start()
     {
-        players.Add(player1);
-        players.Add(player2);
-        players.Add(player3);
-        players.Add(player4);
+        for (int i = 0; i < player.Count; i++)
+        {
+            players.Add(player[i]);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        CountDown();
         if (timer <= 0)
         {
             Scoreboard.SetActive(true);
@@ -55,10 +57,26 @@ public class Game04_Manager : MonoBehaviour
             }
             for (int i = 0; i < players.Count; i++)
             {
-                players[i].GetComponent<PlayerControl>().game04_Score = scores[i];
-                game04_result[i].text = players[i].name + ":" + players[i].GetComponent<PlayerControl>().game04_Score;
+                players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
+                game04_result[i].text = player[i].name + ":" + KID.ScoreSystem.PlayerScore[i];
             }
+            isEnd = true;
         }
+        if (isEnd)
+        {
+            for (int i = 0; i < player.Count; i++)
+            {
+                KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
+            }
+            isEnd = false;
+        }
+    }
+
+    /// <summary>
+    /// 時間倒數
+    /// </summary>
+    private void CountDown()
+    {
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
@@ -71,6 +89,7 @@ public class Game04_Manager : MonoBehaviour
                 _timer = 1;
             }
         }
+
     }
 }
 

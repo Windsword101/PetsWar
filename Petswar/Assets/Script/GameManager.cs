@@ -7,16 +7,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public PlayerControl dog, cat, ribb, turtle;
+    public List<GameObject> player = new List<GameObject>();
     public GameObject Scoreboard;
     public Text[] game_result;
     public Text winnertext;
     public GameObject countdown;
-    // 儲存角色的component<PlayerControl>
-    private List<PlayerControl> players = new List<PlayerControl>();
-    // 儲存最後分數
-    private List<PlayerControl> players_score = new List<PlayerControl>();
+    //用於排列名次
+    public List<GameObject> _player = new List<GameObject>();
+    public List<GameObject> players = new List<GameObject>();
     private bool cdtext = true;
     private float timer = 10;
+    private bool isEnd;
 
     private void Awake()
     {
@@ -28,10 +29,10 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-        players.Add(dog);
-        players.Add(cat);
-        players.Add(ribb);
-        players.Add(turtle);
+        for (int i = 0; i < player.Count; i++)
+        {
+            _player.Add(player[i]);
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -43,13 +44,7 @@ public class GameManager : MonoBehaviour
     {
         if (Application.loadedLevelName == "GameScene")
         {
-            foreach (PlayerControl p in players)
-            {
-                if (p.scripthp <= 0)
-                {
-                    players_score.Add(p);
-                }
-            }
+            ScoreCalculate();
             if (dog.scripthp <= 0 && cat.scripthp <= 0 && ribb.scripthp <= 0)
             {
                 cdtext = false;
@@ -84,7 +79,22 @@ public class GameManager : MonoBehaviour
                 if (timer > 0 && cdtext == true) timer -= Time.deltaTime;
             }
             if (cdtext == true) countdown.GetComponent<Text>().text = timer.ToString("F0");
-            if (timer <= 0) SceneManager.LoadScene("DuelScene");
+            if (timer <= 0)
+            {
+                players.Reverse();
+                players.Insert(0, null);
+                players.Insert(0, null);
+                for (int i = 0; i < players.Count; i++)
+                {
+                    if (players[i] != null)
+                    {
+                        players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
+                        KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
+                    }
+                }
+                SceneManager.LoadScene("DuelScene");
+            }
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 SceneManager.LoadScene("MenuScene");
@@ -96,5 +106,40 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MenuScene");
         Destroy(gameObject);
+    }
+
+    // 計算分數
+    private void ScoreCalculate()
+    {
+        for (int i = 0; i < _player.Count; i++)
+        {
+            if (_player[i].GetComponent<PlayerControl>().scripthp <= 0)
+            {
+                GameObject p = _player[i];
+                int index = _player.IndexOf(p);
+                players.Add(p);
+                _player.RemoveAt(index);
+            }
+        }
+        if (_player.Count == 1)
+        {
+            players.Add(_player[0]);
+            _player.RemoveAt(0);
+            players.Reverse();
+            for (int i = 0; i < players.Count; i++)
+            {
+                players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
+                print(players[i].name + players[i].GetComponent<PlayerControl>().PlayerScore);
+            }
+            isEnd = true;
+        }
+        if (isEnd)
+        {
+            for (int i = 0; i < player.Count; i++)
+            {
+                KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
+            }
+            isEnd = false;
+        }
     }
 }

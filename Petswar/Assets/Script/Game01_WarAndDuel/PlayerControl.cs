@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using KID;
@@ -64,7 +65,11 @@ public class PlayerControl : MonoBehaviour
     private bool cakeOn;
     #endregion
     #region 躲避球模式
-    private int game03_life = 3;
+    public int game03_life = 3;
+    //是否進入無敵狀態
+    private bool isInvincible;
+    //無敵狀態持續時間
+    private float timeSpentInvincible;
     #endregion
 
     private void Awake()
@@ -135,6 +140,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (Application.loadedLevelName == "Game05_volleyball") ThrowVolleyBall();
         if (Application.loadedLevelName == "Game04_Tagyoure it") Score();
+        if (Application.loadedLevelName == "Game03_Balance") Invincible();
         if (Application.loadedLevelName == "Game02_running") Running();
 
         if (Application.loadedLevelName == "GameScene")
@@ -303,9 +309,12 @@ public class PlayerControl : MonoBehaviour
         // 躲避模式被障礙物撞到
         if (other.gameObject.tag == "Obstacle")
         {
+            gameObject.layer = 15;
+            isInvincible = true;
             game03_life -= 1;
             ani.SetTrigger("GetHit");
-            Dead();
+            Game03_Death();
+
         }
         //經典模式被投擲物投中
         if (other.gameObject.tag == "Prop" && other.gameObject.name != prop.name + "(Clone)")
@@ -359,11 +368,11 @@ public class PlayerControl : MonoBehaviour
 
     public void Dead()
     {
-        if (scripthp <= 0 || game03_life <=0)
+        if (scripthp <= 0)
         {
-            deadsound.Play();
             ani.SetTrigger("Death");
             GetComponent<Collider>().enabled = false;
+            deadsound.Play();
         }
     }
     private void Move()
@@ -462,6 +471,50 @@ public class PlayerControl : MonoBehaviour
                 Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), gameObject.transform.Find("ball(Clone)").GetComponent<Collider>(), false);
                 gameObject.transform.Find("ball(Clone)").transform.SetParent(null);
             }
+        }
+    }
+    /// <summary>
+    /// 無敵狀態
+    /// </summary>
+    /// <param name="t"></param>
+    private void Invincible()
+    {
+        if (isInvincible)
+        {
+            Component[] render = gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
+            timeSpentInvincible += Time.deltaTime;
+            if (timeSpentInvincible < 1.5f)
+            {
+                float remainder = timeSpentInvincible % 0.3f;
+                foreach (SkinnedMeshRenderer r in render)
+                {
+                    r.enabled = remainder > 0.15f;
+                }
+            }
+            else
+            {
+                gameObject.layer = 8;
+                isInvincible = false;
+                timeSpentInvincible = 0f;
+                foreach (SkinnedMeshRenderer r in render)
+                {
+                    r.enabled = true;
+                }
+            }
+        }
+    }
+    private void Game03_Death()
+    {
+        if (game03_life == 0)
+        {
+            GameObject[] p = GameObject.FindGameObjectsWithTag("Player");
+            gameObject.layer = 15;
+            for (int i = 0; i < p.Length; i++)
+            {
+                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), p[i].GetComponent<Collider>());
+            }
+            ani.SetTrigger("Death");
+            GetComponent<PlayerControl>().enabled = false;
         }
     }
 }

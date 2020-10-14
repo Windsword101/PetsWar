@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Game03_Manager : MonoBehaviour
 {
+    [Header("場景內四個玩家")]
+    public List<GameObject> player = new List<GameObject>();
     [Header("障礙物物件")]
     public GameObject obstacle;
     [Header("障礙物生成點")]
@@ -15,8 +17,18 @@ public class Game03_Manager : MonoBehaviour
     private float _timer;
     //每個方向產生的障礙物數量
     int num = 1;
+    //用於排列名次
+    private List<GameObject> _player = new List<GameObject>();
+    private List<GameObject> players = new List<GameObject>();
+    private bool isEnd;
+
     void Start()
     {
+        for (int i = 0; i < player.Count; i++)
+        {
+            _player.Add(player[i]);
+        }
+        Physics.IgnoreLayerCollision(15, 14);
         InvokeRepeating("CreateObstacle", WaitTime, WaitTime);
     }
 
@@ -27,6 +39,33 @@ public class Game03_Manager : MonoBehaviour
         if (_timer >= timer * 3) num = 4;
         else if (_timer >= timer * 2) num = 3;
         else if (_timer >= timer) num = 2;
+        for (int i = 0; i < _player.Count; i++)
+        {
+            if (_player[i].GetComponent<PlayerControl>().game03_life == 0)
+            {
+                GameObject p = _player[i];
+                int index = _player.IndexOf(p);
+                players.Add(p);
+                _player.RemoveAt(index);
+            }
+        }
+        if (_player.Count == 0)
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
+                print(players[i].name + players[i].GetComponent<PlayerControl>().PlayerScore);
+            }
+            isEnd = true;
+        }
+        if (isEnd)
+        {
+            for (int i = 0; i < player.Count; i++)
+            {
+                KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
+            }
+            isEnd = false;
+        }
     }
 
     void CreateObstacle()

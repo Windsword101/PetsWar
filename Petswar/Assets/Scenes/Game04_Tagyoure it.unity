@@ -254,6 +254,7 @@ MonoBehaviour:
   game04_scoretext: {fileID: 1546390775}
   game04_caketimer: 0
   game04_Score: 0
+  game03_life: 3
 --- !u!1 &116125017
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,6 +452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a455bac04bda341b5d80e08e51ea0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+  - {fileID: 1614271649}
+  - {fileID: 605416012}
+  - {fileID: 1230181934}
+  - {fileID: 39894894}
   Scoreboard: {fileID: 2107783272}
   game04_result:
   - {fileID: 1191101302}
@@ -1557,6 +1563,7 @@ MonoBehaviour:
   game04_scoretext: {fileID: 1267306857}
   game04_caketimer: 0
   game04_Score: 0
+  game03_life: 3
 --- !u!1 &609064782
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,6 +3677,7 @@ MonoBehaviour:
   game04_scoretext: {fileID: 2130749449}
   game04_caketimer: 0
   game04_Score: 0
+  game03_life: 3
 --- !u!1 &1236692433
 GameObject:
   m_ObjectHideFlags: 0

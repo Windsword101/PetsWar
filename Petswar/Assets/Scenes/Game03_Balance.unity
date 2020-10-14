@@ -150,6 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0adbc664bb596248b39443f5624502c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+  - {fileID: 624308764}
+  - {fileID: 851697457}
+  - {fileID: 1608984451}
+  - {fileID: 825210767}
   obstacle: {fileID: 563230442403226536, guid: 72e164d11a52e0d4d9a48c3711b55a11, type: 3}
   CreatePos:
   - {fileID: 708518059}
@@ -158,6 +163,7 @@ MonoBehaviour:
   - {fileID: 1935330817}
   WaitTime: 2
   timer: 15
+  players: []
 --- !u!4 &131664341
 Transform:
   m_ObjectHideFlags: 0
@@ -488,6 +494,12 @@ PrefabInstance:
     - {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
     - {fileID: 3433208328722644955, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
+--- !u!1 &624308764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8768012324069672630, guid: fb013a935cec5de4abe885dde7ac0a2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 852789570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &708518059
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerScore: 0
   playerdata: {fileID: 11400000, guid: d0447d6dbe28d6948b87817529675c1d, type: 2}
   hit: {fileID: 0}
   Protectionsphere: {fileID: 0}
@@ -620,6 +633,7 @@ MonoBehaviour:
   game04_scoretext: {fileID: 0}
   game04_caketimer: 0
   game04_Score: 0
+  game03_life: 3
 --- !u!1 &851697457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4787408268082038060, guid: d4ebcc1b492684c40a5e01431a575255,
@@ -638,6 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerScore: 0
   playerdata: {fileID: 11400000, guid: 839c8346249120d47903e25d069e54e3, type: 2}
   hit: {fileID: 0}
   Protectionsphere: {fileID: 0}
@@ -659,6 +674,7 @@ MonoBehaviour:
   game04_scoretext: {fileID: 0}
   game04_caketimer: 0
   game04_Score: 0
+  game03_life: 3
 --- !u!1001 &852789570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -676,6 +692,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734793511, guid: fb013a935cec5de4abe885dde7ac0a2f, type: 3}
       propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606946619677175946, guid: fb013a935cec5de4abe885dde7ac0a2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967125942945370743, guid: fb013a935cec5de4abe885dde7ac0a2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491630672845908441, guid: fb013a935cec5de4abe885dde7ac0a2f,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5761622452412970149, guid: fb013a935cec5de4abe885dde7ac0a2f,
@@ -1043,6 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a808b1fd80fb48e47a5ec7c6616571c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerScore: 0
   playerdata: {fileID: 11400000, guid: 8a94c0bf47b2f0d43810a2af16d730ed, type: 2}
   hit: {fileID: 0}
   Protectionsphere: {fileID: 0}
@@ -1064,6 +1096,7 @@ MonoBehaviour:
   game04_scoretext: {fileID: 0}
   game04_caketimer: 0
   game04_Score: 0
+  game03_life: 3
 --- !u!1001 &1695701137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1083,6 +1116,25 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 896852292, guid: 0901a99f71b12e0449d0023edd9a2508, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159988120023553060, guid: 0901a99f71b12e0449d0023edd9a2508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279174443420851403, guid: 0901a99f71b12e0449d0023edd9a2508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451217796453761889, guid: 0901a99f71b12e0449d0023edd9a2508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
       propertyPath: movespeed
@@ -1097,6 +1149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470942259647651447, guid: 0901a99f71b12e0449d0023edd9a2508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6233443539880178422, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
@@ -1153,14 +1210,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6364563655217854311, guid: 0901a99f71b12e0449d0023edd9a2508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6979165482642571493, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}
       propertyPath: m_Name
       value: Tcat
       objectReference: {fileID: 0}
+    - target: {fileID: 6979165482642571493, guid: 0901a99f71b12e0449d0023edd9a2508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3814396040782122189, guid: 0901a99f71b12e0449d0023edd9a2508, type: 3}
     - {fileID: 1666858753655418809, guid: 0901a99f71b12e0449d0023edd9a2508, type: 3}
+    - {fileID: 1439769867727059119, guid: 0901a99f71b12e0449d0023edd9a2508, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0901a99f71b12e0449d0023edd9a2508, type: 3}
 --- !u!1 &1935330817
 GameObject:

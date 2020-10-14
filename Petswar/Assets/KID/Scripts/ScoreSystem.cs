@@ -9,6 +9,8 @@ namespace KID
     /// </summary>
     public class ScoreSystem : MonoBehaviour
     {
+        public static int[] scores = new int[4] { 5, 3, 2, 1 };
+        public static List<int> PlayerScore = new List<int>();
         /// <summary>
         /// 儲存有分數的關卡名稱
         /// </summary>

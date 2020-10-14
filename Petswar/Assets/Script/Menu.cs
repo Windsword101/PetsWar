@@ -9,6 +9,10 @@ public class Menu : MonoBehaviour
     private void Awake()
     {
         RandomScene.SetAllScene("GameScene","Game02_running","Game04_Tagyoure it","Game05_volleyball");
+        ScoreSystem.PlayerScore.Add(0);
+        ScoreSystem.PlayerScore.Add(0);
+        ScoreSystem.PlayerScore.Add(0);
+        ScoreSystem.PlayerScore.Add(0);
     }
     // Start is called before the first frame update
     void Start()
