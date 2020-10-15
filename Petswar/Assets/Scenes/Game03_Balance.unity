@@ -163,7 +163,6 @@ MonoBehaviour:
   - {fileID: 1935330817}
   WaitTime: 2
   timer: 15
-  players: []
 --- !u!4 &131664341
 Transform:
   m_ObjectHideFlags: 0
@@ -1447,7 +1446,7 @@ GameObject:
   - component: {fileID: 2068875627}
   - component: {fileID: 2068875631}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,15 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class DuelSceneManager : MonoBehaviour
 {
+    public List<GameObject> player = new List<GameObject>();
     public GameManager gamemanager;
     public GameObject GM;
     public GameObject duelwinner;
-    public GameObject rules,timesup;
+    public GameObject rules, timesup;
     public Text countdown;
     public Text winnertext;
     public GameObject dog, cat, ribb, turtle, player1, player2;
     public static float timer = 5f;
-    public static bool pause,restart = false;
+    public static bool pause, restart = false;
+    //用於排列名次
+    public List<GameObject> _player = new List<GameObject>();
+    public List<GameObject> players = new List<GameObject>();
+
+    private bool isEnd;
+
     private void Awake()
     {
         rules = GameObject.Find("規則說明");
@@ -103,6 +110,13 @@ public class DuelSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach (GameObject p in player)
+        {
+            if (p.GetComponent<PlayerControlDuel>().dead == false)
+            {
+                _player.Add(p);
+            }
+        }
         pause = true;
         StartCoroutine("Delay");
         Time.timeScale = 0;
@@ -111,6 +125,7 @@ public class DuelSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ScoreCalculate();
         if (pause == false && timer > 0 && duelwinner.activeSelf == false) timer -= Time.deltaTime;
         countdown.text = timer.ToString("F2");
         if (timer <= 0) timesup.SetActive(true);
@@ -154,6 +169,44 @@ public class DuelSceneManager : MonoBehaviour
     public void Restart()
     {
         timesup.SetActive(false);
-        timer = 5f;        
+        timer = 5f;
+    }
+
+    // 計算分數
+    private void ScoreCalculate()
+    {
+        for (int i = 0; i < _player.Count; i++)
+        {
+            if (_player[i].GetComponent<PlayerControlDuel>().enabled == false)
+            {
+                GameObject p = _player[i];
+                int index = _player.IndexOf(p);
+                _player.RemoveAt(index);
+                players.Add(p);
+                isEnd = true;
+            }
+        }
+        if (_player.Count == 1)
+        {
+            players.Insert(0,_player[0]);
+            _player.RemoveAt(0);
+            players.Add(null);
+            players.Add(null);
+            for (int i = 0; i < players.Count; i++)
+            {
+                players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
+                print(players[i].name + players[i].GetComponent<PlayerControl>().PlayerScore);
+            }
+            isEnd = true;
+        }
+        if (isEnd)
+        {
+            for (int i = 0; i < player.Count; i++)
+            {
+                KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
+            }
+            isEnd = false;
+        }
+
     }
 }

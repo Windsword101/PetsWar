@@ -151,6 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b53cd7e1dc46848a049da81c025534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+  - {fileID: 1475608985}
+  - {fileID: 1745679187}
+  - {fileID: 1024020301}
+  - {fileID: 498435065}
   gamemanager: {fileID: 0}
   GM: {fileID: 0}
   duelwinner: {fileID: 828713824}
@@ -164,6 +169,8 @@ MonoBehaviour:
   turtle: {fileID: 1024020301}
   player1: {fileID: 1073902451}
   player2: {fileID: 1650497949}
+  _player: []
+  players: []
 --- !u!4 &14934367
 Transform:
   m_ObjectHideFlags: 0
@@ -705,7 +712,7 @@ PrefabInstance:
     - target: {fileID: 7799366033643185150, guid: fccc72d218dc5d244b64c9b6a01c4316,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 670478793, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
@@ -3342,7 +3349,7 @@ PrefabInstance:
     - target: {fileID: 5761622452412970149, guid: fb013a935cec5de4abe885dde7ac0a2f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.50000006
+      value: 0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 5761622452412970149, guid: fb013a935cec5de4abe885dde7ac0a2f,
         type: 3}
@@ -3352,7 +3359,7 @@ PrefabInstance:
     - target: {fileID: 5761622452412970149, guid: fb013a935cec5de4abe885dde7ac0a2f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.50000006
+      value: 0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 8768012324069672630, guid: fb013a935cec5de4abe885dde7ac0a2f,
         type: 3}

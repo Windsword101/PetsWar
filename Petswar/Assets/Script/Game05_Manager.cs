@@ -16,7 +16,8 @@ public class Game05_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        string randomscene = KID.RandomScene.GetRandomScene();
+        Application.LoadLevel(randomscene);
     }
 
     // Update is called once per frame

@@ -289,6 +289,15 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.name== "Platform")
+        {
+            game03_life -= 1;
+            Game03_Death();
+            StartCoroutine("Game03_LeavePlatform");
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         //排球模式把球抓起來
@@ -516,5 +525,11 @@ public class PlayerControl : MonoBehaviour
             ani.SetTrigger("Death");
             GetComponent<PlayerControl>().enabled = false;
         }
+    }
+    IEnumerator Game03_LeavePlatform()
+    {
+        yield return new WaitForSeconds(2);
+        transform.position = originalposition;
+        isInvincible = true;
     }
 }

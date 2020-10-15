@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game02_running.unity
     guid: b66104e19d7c0354c948eda71e5fd3a2
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Game03_Balance.unity
     guid: 18f9a58babbacf942929e818ff5f07c3
   - enabled: 1

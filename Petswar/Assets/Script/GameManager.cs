@@ -8,19 +8,23 @@ public class GameManager : MonoBehaviour
 {
     public PlayerControl dog, cat, ribb, turtle;
     public List<GameObject> player = new List<GameObject>();
-    public GameObject Scoreboard;
+/*    public GameObject Scoreboard;
     public Text[] game_result;
-    public Text winnertext;
+    public Text winnertext;*/
     public GameObject countdown;
     //用於排列名次
     public List<GameObject> _player = new List<GameObject>();
     public List<GameObject> players = new List<GameObject>();
     private bool cdtext = true;
     private float timer = 10;
-    private bool isEnd;
 
     private void Awake()
     {
+        KID.ScoreSystem.PlayerScore.Add(0);
+        KID.ScoreSystem.PlayerScore.Add(0);
+        KID.ScoreSystem.PlayerScore.Add(0);
+        KID.ScoreSystem.PlayerScore.Add(0);
+
         if (GameObject.FindGameObjectsWithTag("GameManager").Length > 1)
         {
             Destroy(gameObject);
@@ -49,29 +53,29 @@ public class GameManager : MonoBehaviour
             {
                 cdtext = false;
                 countdown.GetComponent<Text>().text = "";
-                Scoreboard.SetActive(true);
-                winnertext.text = "烏龜獲勝！";
+               /* Scoreboard.SetActive(true);
+                winnertext.text = "烏龜獲勝！";*/
             }
             if (dog.scripthp <= 0 && cat.scripthp <= 0 && turtle.scripthp <= 0)
             {
                 cdtext = false;
                 countdown.GetComponent<Text>().text = "";
-                Scoreboard.SetActive(true);
-                winnertext.text = "兔子獲勝！";
+               /* Scoreboard.SetActive(true);
+                winnertext.text = "兔子獲勝！";*/
             }
             if (dog.scripthp <= 0 && ribb.scripthp <= 0 && turtle.scripthp <= 0)
             {
                 cdtext = false;
                 countdown.GetComponent<Text>().text = "";
-                Scoreboard.SetActive(true);
-                winnertext.text = "貓獲勝！";
+               /* Scoreboard.SetActive(true);
+                winnertext.text = "貓獲勝！";*/
             }
             if (cat.scripthp <= 0 && ribb.scripthp <= 0 && turtle.scripthp <= 0)
             {
                 cdtext = false;
                 countdown.GetComponent<Text>().text = "";
-                Scoreboard.SetActive(true);
-                winnertext.text = "狗獲勝！";
+                /*Scoreboard.SetActive(true);
+                winnertext.text = "狗獲勝！";*/
             }
             if ((dog.scripthp <= 0 && cat.scripthp <= 0) || (dog.scripthp <= 0 && ribb.scripthp <= 0) || (dog.scripthp <= 0 && turtle.scripthp <= 0) || (cat.scripthp <= 0 && ribb.scripthp <= 0) || (cat.scripthp <= 0 && turtle.scripthp <= 0) || (ribb.scripthp <= 0 && turtle.scripthp <= 0))
             {
@@ -131,15 +135,16 @@ public class GameManager : MonoBehaviour
                 players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
                 print(players[i].name + players[i].GetComponent<PlayerControl>().PlayerScore);
             }
-            isEnd = true;
+            ScoreBoard.isEnd = true;
         }
-        if (isEnd)
+        if (ScoreBoard.isEnd)
         {
             for (int i = 0; i < player.Count; i++)
             {
                 KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
             }
-            isEnd = false;
+            ScoreBoard.ShowResult = true;
+            ScoreBoard.isEnd = false;
         }
     }
 }

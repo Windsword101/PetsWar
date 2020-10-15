@@ -13,8 +13,11 @@ public class Game02_Manager : MonoBehaviour
     //用於排列名次
     public List<GameObject> _player = new List<GameObject>();
     public List<GameObject> players = new List<GameObject>();
-    private bool isEnd;
 
+    private void Awake()
+    {
+        ScoreBoard.gameIsPlaying = true;
+    }
     void Start()
     {
         for (int i = 0; i < player.Count; i++)
@@ -27,32 +30,37 @@ public class Game02_Manager : MonoBehaviour
     {
         timer_text.text = timer.ToString();
         timer -= Time.deltaTime;
-        for (int i = 0; i < _player.Count; i++)
+        if (ScoreBoard.gameIsPlaying)
         {
-            if (_player[i].GetComponent<PlayerControl>().enabled == false)
+            for (int i = 0; i < _player.Count; i++)
             {
-                GameObject p = _player[i];
-                int index = _player.IndexOf(p);
-                players.Add(p);
-                _player.RemoveAt(index);
+                if (_player[i].GetComponent<PlayerControl>().enabled == false)
+                {
+                    GameObject p = _player[i];
+                    int index = _player.IndexOf(p);
+                    players.Add(p);
+                    _player.RemoveAt(index);
+                }
+            }
+            if (_player.Count == 0)
+            {
+                for (int i = 0; i < players.Count; i++)
+                {
+                    players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
+                    print(players[i].name + players[i].GetComponent<PlayerControl>().PlayerScore);
+                }
+                ScoreBoard.isEnd = true;
+                ScoreBoard.gameIsPlaying = false;
             }
         }
-        if (_player.Count == 0)
-        {
-            for (int i = 0; i < players.Count; i++)
-            {
-                players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
-                print(players[i].name + players[i].GetComponent<PlayerControl>().PlayerScore);
-            }
-            isEnd = true;
-        }
-        if (isEnd)
+        if (ScoreBoard.isEnd)
         {
             for (int i = 0; i < player.Count; i++)
             {
                 KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
             }
-            isEnd = false;
+            ScoreBoard.ShowResult = true;
+            ScoreBoard.isEnd = false;
         }
     }
 }
