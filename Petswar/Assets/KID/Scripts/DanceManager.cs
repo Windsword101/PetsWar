@@ -24,7 +24,7 @@ public class DanceManager : MonoBehaviour
     [Header("喇叭")]
     public AudioSource aud;
     [Header("節奏背景音樂")]
-    public AudioClip[] soundBGMs;
+    public AudioClip soundBGM;
     [Header("產生節點的間隔"), Range(0, 10)]
     public float interval = 0.9f;
     [Header("節點的速度"), Range(0, 1000)]
@@ -36,31 +36,33 @@ public class DanceManager : MonoBehaviour
     /// <summary>
     /// 玩家選取的節點清單
     /// </summary>
-    public List<DanceNote> nodes = new List<DanceNote>();
+    public List<DancdNodeType> nodes = new List<DancdNodeType>();
 
-    public List<DanceNote>[] nodesPlays = { new List<DanceNote>(), new List<DanceNote>(), new List<DanceNote>() };
+    public List<DancdNodeType>[] nodesPlays = { new List<DancdNodeType>(), new List<DancdNodeType>(), new List<DancdNodeType>(), new List<DancdNodeType>() };
 
-    public List<Transform>[] nodesPlayObjects = { new List<Transform>(), new List<Transform>(), new List<Transform>() };
+    public List<Transform>[] nodesPlayObjects = { new List<Transform>(), new List<Transform>(), new List<Transform>(), new List<Transform>() };
+
+    public int[] nodePlaysIndex = { -1, -1, -1, -1 };
 
     /// <summary>
     /// 節點根物件：選取後的節點區塊
     /// </summary>
-    private Transform rootNote;
+    private Transform rootNode;
 
     private void Awake()
     {
-        rootNote = GameObject.Find("選取後的節點區塊").transform;
+        rootNode = GameObject.Find("選取後的節點區塊").transform;
 
+        /* 透過按鈕選取
         for (int i = 0; i < btnsNode.Length; i++)
         {
             int x = i;
-            btnsNode[i].onClick.AddListener(() => AddNote(x, rootNote, nodes, true));
+            btnsNode[i].onClick.AddListener(() => AddNote(x, rootNode, nodes, true));
         }
-    }
+        */
 
-    private void Update()
-    {
-        RandomNote();
+        /* 電腦隨機選取 */
+        StartCoroutine(RandomNoteInterval());
     }
 
     /// <summary>
@@ -71,11 +73,11 @@ public class DanceManager : MonoBehaviour
     /// <param name="listNote">要儲存的清單</param>
     /// <param name="updateTip">是否需要更新提示文字</param>
     /// <param name="listObj">儲存實體物件</param>
-    public void AddNote(int danceNoteIndex, Transform parent, List<DanceNote> listNote, bool updateTip, List<Transform> listObj = null)
+    public void AddNote(int danceNoteIndex, Transform parent, List<DancdNodeType> listNote, bool updateTip, List<Transform> listObj = null)
     {
         if (listNote.Count == countLimit) return;                                                   // 如果 節點總數 等於 上限
 
-        DanceNote danceNote = (DanceNote)danceNoteIndex;                                            // 數字轉為節點列舉
+        DancdNodeType danceNote = (DancdNodeType)danceNoteIndex;                                    // 數字轉為節點列舉
         listNote.Add(danceNote);                                                                    // 節點增加到清單內
 
         if (updateTip) textCount.text = "節點數量：" + listNote.Count + " / " + countLimit;          // 更新文字
@@ -97,16 +99,16 @@ public class DanceManager : MonoBehaviour
         // 上下左右 轉 角度
         switch (danceNote)
         {
-            case DanceNote.上:
+            case DancdNodeType.上:
                 image.rectTransform.localEulerAngles = Vector3.forward * 0;
                 break;
-            case DanceNote.下:
+            case DancdNodeType.下:
                 image.rectTransform.localEulerAngles = Vector3.forward * 180;
                 break;
-            case DanceNote.左:
+            case DancdNodeType.左:
                 image.rectTransform.localEulerAngles = Vector3.forward * 90;
                 break;
-            case DanceNote.右:
+            case DancdNodeType.右:
                 image.rectTransform.localEulerAngles = Vector3.forward * 270;
                 break;
         }
@@ -120,11 +122,15 @@ public class DanceManager : MonoBehaviour
     public void StartGame()
     {
         panelGame.SetActive(true);
-        aud.clip = soundBGMs[1];
+        aud.clip = soundBGM;
         aud.Play();
         StartCoroutine(CreateNote());
     }
 
+    /// <summary>
+    /// 建立節點
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator CreateNote()
     {
         for (int i = 0; i < nodes.Count; i++)
@@ -136,13 +142,15 @@ public class DanceManager : MonoBehaviour
                 temp.localPosition = Vector3.zero;
                 temp.anchoredPosition += Vector2.right * x;
                 temp.gameObject.AddComponent<DanceNode>().speed = speed;
+                temp.gameObject.GetComponent<DanceNode>().node = nodes[i];
+                temp.gameObject.GetComponent<DanceNode>().indexPlayer = j;
             }
 
             yield return new WaitForSecondsRealtime(interval);
         }
     }
 
-    private void RandomNote()
+    private void RandomNode()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) StartCoroutine(RandomNoteInterval());
     }
@@ -152,7 +160,7 @@ public class DanceManager : MonoBehaviour
         for (int i = 0; i < 50; i++)
         {
             int r = Random.Range(0, 7);
-            AddNote(r, rootNote, nodes, true);
+            AddNote(r, rootNode, nodes, true);
             yield return null;
         }
     }

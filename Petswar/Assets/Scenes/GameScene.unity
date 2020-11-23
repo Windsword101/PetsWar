@@ -6292,7 +6292,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 734793511, guid: fb013a935cec5de4abe885dde7ac0a2f, type: 3}
       propertyPath: m_Drag
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5761622452412970149, guid: fb013a935cec5de4abe885dde7ac0a2f,
         type: 3}
@@ -8915,9 +8915,6 @@ MonoBehaviour:
   - {fileID: 1216113947}
   - {fileID: 917772728}
   - {fileID: 1334241069}
-  Scoreboard: {fileID: 19470110}
-  game_result: []
-  winnertext: {fileID: 766735506}
   countdown: {fileID: 460068566}
   _player: []
   players: []
@@ -9552,7 +9549,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 110495733, guid: fccc72d218dc5d244b64c9b6a01c4316, type: 3}
       propertyPath: m_Drag
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3433208328722644955, guid: fccc72d218dc5d244b64c9b6a01c4316,
         type: 3}
@@ -12310,7 +12307,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 940408618, guid: d4ebcc1b492684c40a5e01431a575255, type: 3}
       propertyPath: m_Drag
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4689114955378675381, guid: d4ebcc1b492684c40a5e01431a575255,
         type: 3}
@@ -14114,7 +14111,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 896852292, guid: 0901a99f71b12e0449d0023edd9a2508, type: 3}
       propertyPath: m_Drag
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1666858753655418809, guid: 0901a99f71b12e0449d0023edd9a2508,
         type: 3}

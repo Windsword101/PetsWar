@@ -23,6 +23,7 @@ public class Game03_Manager : MonoBehaviour
 
     void Start()
     {
+        ScoreBoard.gameIsPlaying = true;
         for (int i = 0; i < player.Count; i++)
         {
             _player.Add(player[i]);
@@ -42,7 +43,7 @@ public class Game03_Manager : MonoBehaviour
         {
             for (int i = 0; i < _player.Count; i++)
             {
-                if (_player[i].GetComponent<PlayerControl>().game03_life == 0)
+                if (_player[i].GetComponent<PlayerControl>().enabled == false)
                 {
                     GameObject p = _player[i];
                     int index = _player.IndexOf(p);
@@ -55,7 +56,6 @@ public class Game03_Manager : MonoBehaviour
                 for (int i = 0; i < players.Count; i++)
                 {
                     players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
-                    print(players[i].name + players[i].GetComponent<PlayerControl>().PlayerScore);
                 }
                 ScoreBoard.isEnd = true;
                 ScoreBoard.gameIsPlaying = false;

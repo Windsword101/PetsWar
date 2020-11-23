@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public PlayerControl dog, cat, ribb, turtle;
     public List<GameObject> player = new List<GameObject>();
-/*    public GameObject Scoreboard;
-    public Text[] game_result;
-    public Text winnertext;*/
+    /*    public GameObject Scoreboard;
+        public Text[] game_result;
+        public Text winnertext;*/
     public GameObject countdown;
     //用於排列名次
     public List<GameObject> _player = new List<GameObject>();
@@ -20,10 +20,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        KID.ScoreSystem.PlayerScore.Add(0);
-        KID.ScoreSystem.PlayerScore.Add(0);
-        KID.ScoreSystem.PlayerScore.Add(0);
-        KID.ScoreSystem.PlayerScore.Add(0);
 
         if (GameObject.FindGameObjectsWithTag("GameManager").Length > 1)
         {
@@ -53,22 +49,22 @@ public class GameManager : MonoBehaviour
             {
                 cdtext = false;
                 countdown.GetComponent<Text>().text = "";
-               /* Scoreboard.SetActive(true);
-                winnertext.text = "烏龜獲勝！";*/
+                /* Scoreboard.SetActive(true);
+                 winnertext.text = "烏龜獲勝！";*/
             }
             if (dog.scripthp <= 0 && cat.scripthp <= 0 && turtle.scripthp <= 0)
             {
                 cdtext = false;
                 countdown.GetComponent<Text>().text = "";
-               /* Scoreboard.SetActive(true);
-                winnertext.text = "兔子獲勝！";*/
+                /* Scoreboard.SetActive(true);
+                 winnertext.text = "兔子獲勝！";*/
             }
             if (dog.scripthp <= 0 && ribb.scripthp <= 0 && turtle.scripthp <= 0)
             {
                 cdtext = false;
                 countdown.GetComponent<Text>().text = "";
-               /* Scoreboard.SetActive(true);
-                winnertext.text = "貓獲勝！";*/
+                /* Scoreboard.SetActive(true);
+                 winnertext.text = "貓獲勝！";*/
             }
             if (cat.scripthp <= 0 && ribb.scripthp <= 0 && turtle.scripthp <= 0)
             {

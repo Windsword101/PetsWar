@@ -20,8 +20,6 @@ public class DuelSceneManager : MonoBehaviour
     public List<GameObject> _player = new List<GameObject>();
     public List<GameObject> players = new List<GameObject>();
 
-    private bool isEnd;
-
     private void Awake()
     {
         rules = GameObject.Find("規則說明");
@@ -177,35 +175,37 @@ public class DuelSceneManager : MonoBehaviour
     {
         for (int i = 0; i < _player.Count; i++)
         {
-            if (_player[i].GetComponent<PlayerControlDuel>().enabled == false)
+            if (_player[i].GetComponent<Collider>().enabled == false)
             {
                 GameObject p = _player[i];
                 int index = _player.IndexOf(p);
                 _player.RemoveAt(index);
                 players.Add(p);
-                isEnd = true;
             }
         }
         if (_player.Count == 1)
         {
-            players.Insert(0,_player[0]);
+            players.Insert(0, _player[0]);
             _player.RemoveAt(0);
             players.Add(null);
             players.Add(null);
             for (int i = 0; i < players.Count; i++)
             {
-                players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
-                print(players[i].name + players[i].GetComponent<PlayerControl>().PlayerScore);
+                if (players[i] != null)
+                {
+                    players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
+                }
             }
-            isEnd = true;
+            ScoreBoard.ShowResult = true;
         }
-        if (isEnd)
+        if (ScoreBoard.isEnd)
         {
             for (int i = 0; i < player.Count; i++)
             {
                 KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
             }
-            isEnd = false;
+            ScoreBoard.ShowResult = true;
+            ScoreBoard.isEnd = false;
         }
 
     }

@@ -16,10 +16,12 @@ public class Game02_Manager : MonoBehaviour
 
     private void Awake()
     {
+       
         ScoreBoard.gameIsPlaying = true;
     }
     void Start()
     {
+        
         for (int i = 0; i < player.Count; i++)
         {
             _player.Add(player[i]);

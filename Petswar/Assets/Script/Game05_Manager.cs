@@ -1,44 +1,75 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Game05_Manager : MonoBehaviour
 {
-    public GameObject[] judgemetnArea;
-    public Text[] ballNumber_text;
-    public GameObject cube;
+    [Header("照相機")]
+    public GameObject camera;
+    [Header("抽籤的箱子")]
+    public List<GameObject> box = new List<GameObject>();
+    [Header("玩家抽籤後分組的位置")]
+    public List<Transform> _position = new List<Transform>();
+    [Header("儲存角色物件")]
+    public List<GameObject> player = new List<GameObject>();
+    [Header("排球")]
     public GameObject ball;
-    public Transform instantiateBall;
-    public static int[] ballNumber = new int[4];
-    private float timer;
-    private int a;
+    [Header("產生球")]
+    public Transform SpwanBall;
+    Vector3 cameraOriginalPos;
+    Vector3 pos;
+    bool gamestart;
+    //抽籤
+    public int groupA, groupB;
+    private void Awake()
+    {
+        cameraOriginalPos = camera.transform.position;
+        pos = camera.transform.position;
+        pos.x = 39.6f;
+        pos.y = 29;
+        camera.transform.position = pos;
+        foreach (GameObject p in player)
+        {
+            p.GetComponent<BoxCollider>().enabled = false;
+        }
+        Instantiate(ball, SpwanBall);
+        /*int i = Random.Range(0, 4);
+        Instantiate(ball, player[i].transform);*/
+    }
     // Start is called before the first frame update
     void Start()
     {
-        string randomscene = KID.RandomScene.GetRandomScene();
-        Application.LoadLevel(randomscene);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(a);
-        for (int i = 0; i < ballNumber_text.Length; i++)
+        for (int i = 0; i < box.Count; i++)
         {
-            ballNumber_text[i].text = ballNumber[i].ToString("F0");
+            if (box[i].GetComponent<BoxCollider>().enabled == false)
+            {
+                box.RemoveAt(i);
+            }
         }
-        spawnBall();
-        cube.transform.eulerAngles += new Vector3(0, 1, 0);
+        if (box.Count == 0 && !gamestart)
+        {
+            StartCoroutine("GameStart");
+        }
     }
-    private void spawnBall()
+    IEnumerator GameStart()
     {
-        timer += Time.deltaTime;
-        if (timer >= 2)
+        yield return new WaitForSeconds(3f);
+        gamestart = true;
+        foreach (GameObject p in player)
         {
-            a += 1;
-            Instantiate(ball, instantiateBall);
-            timer = 0;
+            print("Yes");
+            p.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            p.GetComponent<BoxCollider>().enabled = true;
+            p.transform.localPosition = new Vector3(0, 0, 0);
+            camera.transform.position = cameraOriginalPos;
         }
+        print("no");
+
     }
 }

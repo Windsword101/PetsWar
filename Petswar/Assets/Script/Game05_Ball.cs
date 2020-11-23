@@ -4,25 +4,37 @@ using UnityEngine;
 
 public class Game05_Ball : MonoBehaviour
 {
-    private string[] playerName = new string[4] { "Dog", "Ribb", "Turtle", "Cat" };
-    private void OnTriggerEnter(Collider other)
+    private bool gamestart;
+    private void Awake()
     {
-        for (int i = 0; i < playerName.Length; i++)
+        gamestart = true;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player" && gamestart)
         {
-            if (other.gameObject.name == playerName[i] && gameObject.name == "ball(Clone)")
-            {
-                Game05_Manager.ballNumber[i] += 1;
-            }
+            transform.SetParent(null);
+            gameObject.transform.SetParent(collision.gameObject.transform);
+            gameObject.transform.localPosition = new Vector3(0, 2, 2);
+            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>(), true);
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            gameObject.transform.localPosition = new Vector3(0, 2, 2);
+            gamestart = false;
+        }
+        if (collision.gameObject.tag == "Player" && gamestart == false)
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 15, 0));
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        for (int i = 0; i < playerName.Length; i++)
-        {
-            if (other.gameObject.name == playerName[i] && gameObject.name == "ball(Clone)")
-            {
-                Game05_Manager.ballNumber[i] -= 1;
-            }
-        }
-    }
+
 }

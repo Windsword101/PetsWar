@@ -2,4 +2,4 @@
 
 public enum Character { 狗, 兔子, 烏龜, 貓 };
 
-public enum DanceNote { 上, 下, 左, 右, A, B, C };
+public enum DancdNodeType { 上, 下, 左, 右, A, B, C, 無 };
