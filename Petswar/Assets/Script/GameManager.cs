@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (GameObject.FindGameObjectsWithTag("GameManager").Length > 1)
         {
             Destroy(gameObject);
@@ -89,8 +88,11 @@ public class GameManager : MonoBehaviour
                     if (players[i] != null)
                     {
                         players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
-                        KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
-                    }
+                    }                    
+                }
+                for (int i = 0; i < player.Count; i++)
+                {
+                    KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
                 }
                 SceneManager.LoadScene("DuelScene");
             }
@@ -141,6 +143,7 @@ public class GameManager : MonoBehaviour
             }
             ScoreBoard.ShowResult = true;
             ScoreBoard.isEnd = false;
+            Destroy(gameObject);
         }
     }
 }

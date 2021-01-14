@@ -9,6 +9,7 @@ public class ScoreBoard : MonoBehaviour
     public List<string> playerName;
     public static bool gameIsPlaying, isEnd, ShowResult;
     public GameObject scoreboard;
+    private float timer;
 
     private void Awake()
     {
@@ -35,23 +36,28 @@ public class ScoreBoard : MonoBehaviour
         }
         if (scoreboard.activeSelf == true)
         {
-            StartCoroutine("ScoreboardActive");
+            ScoreboardActive();
         }
 
     }
 
-    IEnumerator ScoreboardActive()
+    private void ScoreboardActive()
     {
-        yield return new WaitForSeconds(2f);
-        if (Input.anyKeyDown)
+        timer += Time.deltaTime;
+        if (timer >= 2f && Input.anyKeyDown)
         {
             scoreboard.SetActive(false);
             ShowResult = false;
             string randomscene = KID.RandomScene.GetRandomScene();
-            if (randomscene != null)
+            if (randomscene == "")
+            {
+                Application.LoadLevel("WinnerScene");
+            }
+            else
             {
                 Application.LoadLevel(randomscene);
             }
+            timer = 0;
         }
     }
 }

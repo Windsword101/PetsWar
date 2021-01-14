@@ -8,8 +8,6 @@ public class Menu : MonoBehaviour
 {
     private void Awake()
     {
-        RandomScene.SetAllScene("GameScene","Game02_running", "Game03_Balance","Game04_Tagyoure it","Game05_volleyball");
-        
     }
     // Start is called before the first frame update
     void Start()
@@ -25,17 +23,27 @@ public class Menu : MonoBehaviour
     }
     public void GameStart()
     {
+        RandomScene.SetAllScene("GameScene", "Game02_running", "Game03_Balance", "Game04_Tagyoure it");
         string randomscene = RandomScene.GetRandomScene();
         SceneManager.LoadScene(randomscene);
-
     }
+
     public void StoryMode()
     {
         SceneManager.LoadScene("StoryScene");
     }
+
     public void GameQuite()
     {
         Application.Quit();
-    
+    }
+
+    public void Restart()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            ScoreSystem.PlayerScore[i] = 0;
+        }
+        SceneManager.LoadScene("MenuScene");
     }
 }

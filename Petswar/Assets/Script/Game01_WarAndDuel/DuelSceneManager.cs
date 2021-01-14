@@ -22,6 +22,10 @@ public class DuelSceneManager : MonoBehaviour
 
     private void Awake()
     {
+        for (int i = 0; i < KID.ScoreSystem.PlayerScore.Count; i++)
+        {
+            print(KID.ScoreSystem.PlayerScore[i]);
+        }
         rules = GameObject.Find("規則說明");
         GM = GameObject.Find("GM");
         gamemanager = GameObject.Find("GM").GetComponent<GameManager>();
@@ -124,10 +128,10 @@ public class DuelSceneManager : MonoBehaviour
     void Update()
     {
         ScoreCalculate();
-        if (pause == false && timer > 0 && duelwinner.activeSelf == false) timer -= Time.deltaTime;
+        if (pause == false && timer > 0 && ScoreBoard.ShowResult == false) timer -= Time.deltaTime;
         countdown.text = timer.ToString("F2");
         if (timer <= 0) timesup.SetActive(true);
-        if (dog.GetComponent<PlayerControlDuel>().dead == false && cat.GetComponent<PlayerControlDuel>().dead == true && ribb.GetComponent<PlayerControlDuel>().dead == true && turtle.GetComponent<PlayerControlDuel>().dead == true)
+        /*if (dog.GetComponent<PlayerControlDuel>().dead == false && cat.GetComponent<PlayerControlDuel>().dead == true && ribb.GetComponent<PlayerControlDuel>().dead == true && turtle.GetComponent<PlayerControlDuel>().dead == true)
         {
             duelwinner.SetActive(true);
             winnertext.text = "狗獲勝！";
@@ -141,7 +145,7 @@ public class DuelSceneManager : MonoBehaviour
         }
         else if (dog.GetComponent<PlayerControlDuel>().dead == true && cat.GetComponent<PlayerControlDuel>().dead == true && ribb.GetComponent<PlayerControlDuel>().dead == false && turtle.GetComponent<PlayerControlDuel>().dead == true)
         {
-            duelwinner.SetActive(true);
+            duelwinner.SetActive(true);s
             winnertext.text = "兔子獲勝！";
             Destroy(GM);
         }
@@ -150,7 +154,7 @@ public class DuelSceneManager : MonoBehaviour
             duelwinner.SetActive(true);
             winnertext.text = "烏龜獲勝！";
             Destroy(GM);
-        }
+        }*/
     }
     public void Menu()
     {
@@ -193,19 +197,23 @@ public class DuelSceneManager : MonoBehaviour
             {
                 if (players[i] != null)
                 {
-                    players[i].GetComponent<PlayerControl>().PlayerScore = KID.ScoreSystem.scores[i];
+                    players[i].GetComponent<PlayerControlDuel>().PlayerScore = KID.ScoreSystem.scores[i];
                 }
             }
-            ScoreBoard.ShowResult = true;
+            ScoreBoard.isEnd = true;
         }
         if (ScoreBoard.isEnd)
         {
             for (int i = 0; i < player.Count; i++)
             {
-                KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControl>().PlayerScore;
+                if (player[i].GetComponent<PlayerControlDuel>() != null)
+                {
+                    KID.ScoreSystem.PlayerScore[i] += player[i].GetComponent<PlayerControlDuel>().PlayerScore;
+                }
             }
             ScoreBoard.ShowResult = true;
             ScoreBoard.isEnd = false;
+            Destroy(GM);
         }
 
     }

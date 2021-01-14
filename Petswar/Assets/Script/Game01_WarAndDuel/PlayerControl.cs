@@ -130,7 +130,7 @@ public class PlayerControl : MonoBehaviour
         originalposition = transform.position;
         rb = gameObject.GetComponent<Rigidbody>();
         ani = GetComponent<Animator>();
-        if (Application.loadedLevelName == "GameScene")
+        if (Application.loadedLevelName == "GameScene" || Application.loadedLevelName == "DuelScene")
         {
             deadsound = GameObject.Find("Dead").GetComponent<AudioSource>();
             throwsound = GameObject.Find("Throw").GetComponent<AudioSource>();

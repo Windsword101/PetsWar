@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using KID;
 
-public class BackgroundMusic : MonoBehaviour
+public class Init : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

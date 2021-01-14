@@ -5,6 +5,7 @@ using KID;
 
 public class PlayerControlDuel : MonoBehaviour
 {
+    public int PlayerScore;
     public PlayerData playerdata;
     [Header("丟擲對象")]
     public GameObject hit;
