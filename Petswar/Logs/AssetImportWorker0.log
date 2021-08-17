@@ -1,0 +1,176 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.3f1 (76626098c1c4) revision 7758432'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.1165; Version 2009; 64bit' Language: 'zh' Physical Memory: 16315 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Jeff/Desktop/PetsWar/Petswar
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+56725
+Successfully changed project path to: C:/Users/Jeff/Desktop/PetsWar/Petswar
+C:/Users/Jeff/Desktop/PetsWar/Petswar
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 63.03 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.3f1 (76626098c1c4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Jeff/Desktop/PetsWar/Petswar/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f08)
+    Vendor:   
+    VRAM:     5980 MB
+    Driver:   27.21.14.5751
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56096
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003173 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 58.74 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.278 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001391 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 61.94 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.145 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.95 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2604 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 144.2 MB.
+System memory in use after: 144.4 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3083.
+Total: 2.227000 ms (FindLiveObjects: 0.243600 ms CreateObjectMapping: 0.124200 ms MarkObjects: 1.837000 ms  DeleteObjects: 0.021100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Game05_Art/Beach/SEANORMAL.jpg
+  artifactKey: Guid(bf4295399e95b6948a746a627d10f5b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/SEANORMAL.jpg using Guid(bf4295399e95b6948a746a627d10f5b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfb512bae4754b8ee2e9abb41bdab983') in 0.131596 seconds
+  Import took 0.136784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Game05_Art/Beach/0001.jpg
+  artifactKey: Guid(f1d91190e66a84b4ebcd068b90cc60db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001.jpg using Guid(f1d91190e66a84b4ebcd068b90cc60db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9b36ddebd111872696c84510d55f8ea') in 0.012533 seconds
+  Import took 0.016143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 751.823006 seconds.
+  path: Assets/Game05_Art/Beach/0001Height.bmp
+  artifactKey: Guid(4958107c0ad2f7042a968970db4aaed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height.bmp using Guid(4958107c0ad2f7042a968970db4aaed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a84d6b5f48e187565416db0c2c58775f') in 0.014636 seconds
+  Import took 0.020688 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002184 seconds.
+  path: Assets/Game05_Art/Beach/0001Height.bmp
+  artifactKey: Guid(4958107c0ad2f7042a968970db4aaed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height.bmp using Guid(4958107c0ad2f7042a968970db4aaed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a84d6b5f48e187565416db0c2c58775f') in 0.018267 seconds
+  Import took 0.022638 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 484.495590 seconds.
+  path: Assets/Game05_Art/Beach/0001Height.bmp
+  artifactKey: Guid(4958107c0ad2f7042a968970db4aaed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height.bmp using Guid(4958107c0ad2f7042a968970db4aaed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec60bf099aa5555950fb2e4462cf0a50') in 0.020725 seconds
+  Import took 0.024979 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 303.489798 seconds.
+  path: Assets/Game05_Art/Beach/0001Height 1.bmp
+  artifactKey: Guid(596129b163377b5489aac15164c35ef5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height 1.bmp using Guid(596129b163377b5489aac15164c35ef5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df04e25a3105cc34f7bc99da590bbdbd') in 0.011504 seconds
+  Import took 0.015808 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.475148 seconds.
+  path: Assets/Game05_Art/Beach/0001Height.bmp
+  artifactKey: Guid(596129b163377b5489aac15164c35ef5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height.bmp using Guid(596129b163377b5489aac15164c35ef5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '991826f64b86502ca0cc5031dba1f2e8') in 0.010335 seconds
+  Import took 0.014188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 270.039352 seconds.
+  path: Assets/Game05_Art/Beach/0001Height 1.bmp
+  artifactKey: Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height 1.bmp using Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '385fc7c2500045718999a089b9e15636') in 0.015029 seconds
+  Import took 0.019458 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019249 seconds.
+  path: Assets/Game05_Art/Beach/0001Height 1.bmp
+  artifactKey: Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height 1.bmp using Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '385fc7c2500045718999a089b9e15636') in 0.013737 seconds
+  Import took 0.018031 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.722912 seconds.
+  path: Assets/Game05_Art/Beach/0001Height.bmp
+  artifactKey: Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height.bmp using Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd60a0b9ce754fc3bfad3a2a665cdc8f') in 0.010329 seconds
+  Import took 0.015104 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5243.418054 seconds.
+  path: Assets/Game05_Art/Beach/0001Height.bmp
+  artifactKey: Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height.bmp using Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a58d2b2181945e30b46cbc6e0c3cd420') in 0.019061 seconds
+  Import took 0.024429 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002869 seconds.
+  path: Assets/Game05_Art/Beach/0001Height.bmp
+  artifactKey: Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game05_Art/Beach/0001Height.bmp using Guid(d7780939769b7984ba10a42e84712b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a58d2b2181945e30b46cbc6e0c3cd420') in 0.014569 seconds
+  Import took 0.018967 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
